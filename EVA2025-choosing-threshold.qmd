@@ -79,13 +79,13 @@ When $\xi>-1$, we have $$\mathsf{E}(X-u) = \sigma_u/(1+\xi).$$
 
 The GPD can be derived from a limiting Poisson process ${\mathcal P}$ under which rare events occur in the $(t,y)$-plane with measure
 \begin{align*}
-\Lambda[(t',t)\times[u,\infty)] = (t_2-t_1)\{1+\xi(u-\eta)/\tau\}^{-1/\xi}_+, \qquad \eta \in \mathbb{R}, \tau > 0
+\Lambda[(t',t)\times[u,\infty)] = (t_2-t_1)\{1+\xi(u-\eta)/\sigma\}^{-1/\xi}_+, \qquad \eta \in \mathbb{R}, \sigma > 0.
 \end{align*}
 
 
-The vertical coordinates of ${\mathcal P}$ on  ${\mathcal C}_{-\infty}$ can be generated as 
+The vertical coordinates of ${\mathcal P}$ can be generated as 
 \begin{align*}
-\eta + \frac{\tau}{\xi}\Bigg\{\Bigg(\sum_{j=1}^r E_j\Bigg)^{-\xi} - 1\Bigg\}, \quad r=1,2,\ldots,
+\eta + \frac{\sigma}{\xi}\Bigg\{\Bigg(\sum_{j=1}^r E_j\Bigg)^{-\xi} - 1\Bigg\}, \quad r=1,2,\ldots;
 \end{align*}
 where the $E_j$ are independent exponential random variables.
 
@@ -98,16 +98,18 @@ The choice of threshold then amounts to choosing the highest value for which the
 Threshold-stability and the Markov nature of order statistics $X_{(1)}\leq\cdots\leq X_{(n)}$ of a simple random sample drawn from $\mathsf{GP}(\sigma,\xi)$ imply that the joint density of the order statistics is
 \begin{equation}
 \label{eq:Renyi}
-\prod_{j=2}^n f(x_{(j)} \mid x_{(j-1)}) f(x_{(1)})= \prod_{j=1}^n \frac{1}{\sigma_j}\left\{1 + \frac{\xi}{n+1-j}\frac{(y_{(j)}-y_{(j-1)})}{ \sigma_j}\right\}^{-(n+1-j)/\xi-1}_+,
+\prod_{j=2}^n f(x_{(j)} \mid x_{(j-1)}) f(x_{(1)})= \prod_{j=1}^n \frac{1}{\sigma_j}\left\{1 + \frac{\xi}{n+1-j}\frac{(x_{(j)}-x_{(j-1)})}{ \sigma_j}\right\}^{-(n+1-j)/\xi-1}_+,
 \end{equation}
-where $\sigma_j = (\sigma+\xi y_{j-1})/(n+1-j)$ and $y_{(0)}=0$.
+where $\sigma_j = (\sigma+\xi x_{j-1})/(n+1-j)$ and $x_{(0)}=0$.
 
 
 This extends the Rényi representation for exponential data and  provides a likelihood if the parameters are allowed to change at order statistics, provided that the parameters for the increment $X_{(j)}-X_{(j-1)}$ depend on the order statistics up to $X_{(j-1)}$.
 
 @Stein:2023 explores this idea to replace the threshold by a weighting scheme of the observations.
 
-## Some problems with (most methods)
+## Some problems with (most methods) 
+
+::: {style="font-size: 80%;"}
 
 Consider the problem of selecting a threshold amongst candidates $u_1 < \cdots < u_k.$
 
@@ -116,6 +118,8 @@ Consider the problem of selecting a threshold amongst candidates $u_1 < \cdots <
 - Multiple testing
 - Potential for automation
 - Non-stationarity
+
+:::
 
 ## Literature review
 
@@ -148,7 +152,7 @@ Scale and shape parameters are negatively correlated.
 
 ## Penultimate effects
 
-Arguments of @smith_1987 show that a better approximation is obtained by letting the shape vary with $u$, with 
+@smith_1987 show that a better approximation is obtained by letting the shape vary with $u$, with 
 $$\xi_t = r'(u),$$ where $$r(t) = \{1-F(t)\}/f(t)$$ is the reciprocal hazard function.
 
 ## Illustration of penultimate effects: normal example {.smaller}
@@ -220,8 +224,8 @@ The EGP$(\sigma,\xi, G_\kappa)$ distribution function is then
 \begin{align*}
 \Pr(X\leq x) = G_\kappa\{ F(x;\sigma,\xi)\}.                     \end{align*}
 
-- @Papastathopoulos.Tawn:2013 (their models imply the density at the origin is zero)
-- @Gamet.Jalbert:2022 (other models, but non-regular asymptotics).
+- @Papastathopoulos.Tawn:2013: models imply the density at the origin is zero.
+- @Gamet.Jalbert:2022 (propose two models, but non-regular asymptotics).
 
 ## Extended generalized Pareto models
 
@@ -275,7 +279,7 @@ Fails 17% of the time in our simulations with equally spaced quantiles.
 
 
 - Problems with positive definiteness of information matrices for shape increments.
-- Method sensitive to rounding 
+- Method sensitive to rounding. 
 - Must choose the threshold sequence $u_1 \leq \cdots u_k$ carefully.
 
 
@@ -288,10 +292,10 @@ Fails 17% of the time in our simulations with equally spaced quantiles.
 
 @Lee:2015  propose constructing a threshold stability plot showing Bayesian $p$-value for a summary statistic against thresholds, capturing the agreement between sample and simulated data from the posterior distribution.
 
-Under null hypothesis, $p$-values should be around 0.5
+Under null hypothesis, $p$-values should be around 0.5.
 
 
-- Need replications to assess null distribution (very computationally intensive)
+- Need replications to assess null distribution (very computationally intensive).
 - Choice of statistic matters!
 
 
@@ -368,11 +372,11 @@ Build metric based on exponential (or generalized Pareto quantile $F_0^{-1}\{p_i
 Pick the threshold with the smallest average distance is chosen.
 
 - amenable to different sampling schemes (censoring, non-identically distributed data, time-varying thresholds).
-- computationally-intensive by design
+- computationally-intensive by design.
 
 ## Simulation study: comparison of methods {.smaller}
 
-We considered 13 different distributions from simulation studies in @Choulakian.Stephens:2001}and @Schneider:2021.
+We considered 13 different distributions from simulation studies in @Choulakian.Stephens:2001 and @Schneider:2021.
 
 - Consider 1000 replications of IID data, data with serial correlation in the tail, rounded observations.
 - Data of size $n\in \{1000, 2000\}$ with candidate thresholds at the sample $\{0.8, 0.81, \ldots, 0.99\}$ quantiles, keeping a minimum of 20 exceedances.
@@ -399,28 +403,28 @@ knitr::include_graphics("figures/thresh_simulation1.png")
 
 ## More comments {.smaller}
 
-- Mean residual life plots are uniformly scattered
-- Varty metric diagnostic also leads to very small  thresholds (mean is near 80\%)
+- Mean residual life plots are uniformly scattered.
+- Varty metric diagnostic also leads to very small  thresholds (mean is near 80\%).
 - @Northrop.Attalides.Jonathan:2017 and @Thompson:2009 lead to much less agreement and a greater variability of selected quantile levels for the thresholds. For the cross-validation approach, this is in line with findings of @Murphy.Tawn.Varty:2024.
 - The oracle method returns value that are on average between the 87% and the 90% quantile.
 - Wadsworth's sequential testing performs best with heavy tailed distributions, but otherwise is one of the worst in terms of ranking.
 
 ## Conclusions and future work
 
-- Is the problem well-formulated? There is no ``correct'' threshold, so are we barking up the wrong tree?
+- Is the problem well-formulated? There is no "correct" threshold, so are we barking up the wrong tree?
 - Weighting with different threshold choices to account for uncertainty.
 - Should we be fitting sub-asymptotic models to much more data? 
 
 ## Semiparametric methods
 
-The paper also compares 18 different methods using Hill-type  estimator for heavy-tailed data.
+The paper also compares 18 different semiparametric methods using Hill-type  estimator for heavy-tailed data.
 
 - Careful: many numerical implementations don't specify a minimum sample size!
-- Primer: methods based on minimization of the asymptotic mean squared error of the Hill estimator [@Caeiro.Gomes:2016], or the double nonparametric bootstrap scheme @Gomes.Figueiredo.Neves:2012, and random block maxima estimator of @Wager:2014 with empirical risk minimization perform best
+- Primer: methods based on minimization of the asymptotic mean squared error of the Hill estimator [@Caeiro.Gomes:2016], or the double nonparametric bootstrap scheme @Gomes.Figueiredo.Neves:2012, and random block maxima estimator of @Wager:2014 with empirical risk minimization perform best.
 
 ## Don't use the following {.smaller}
 
-- Methods based on minimization of the asymptotic mean squared error can break down catastrophically for particular datasets.
+- Methods based on minimization of the asymptotic mean squared error can break down catastrophically for particular data sets.
 - Methods by @Gomes:2013 and @Hall.Welsh:1985 behave erratically with small shape parameters: these procedures lead to strongly biased shape parameter estimates. This is due to them keeping more than 15\% of the data for inference.
 - @Drees.Kaufmann:1998 bias-reduction method leads to small number of order statistics, with very large width of the confidence intervals (unwanted variability).
 - Many other methods are extremely variable.

@@ -195,10 +195,10 @@ Léo Belzile, HEC Montréal (joint work with Sonia Alouini and Anthony Davison)
 <section id="point-process-formulation" class="slide level2 smaller">
 <h2>Point process formulation</h2>
 <p>The GPD can be derived from a limiting Poisson process <span class="math inline">\({\mathcal P}\)</span> under which rare events occur in the <span class="math inline">\((t,y)\)</span>-plane with measure <span class="math display">\[\begin{align*}
-\Lambda[(t',t)\times[u,\infty)] = (t_2-t_1)\{1+\xi(u-\eta)/\tau\}^{-1/\xi}_+, \qquad \eta \in \mathbb{R}, \tau &gt; 0
+\Lambda[(t',t)\times[u,\infty)] = (t_2-t_1)\{1+\xi(u-\eta)/\sigma\}^{-1/\xi}_+, \qquad \eta \in \mathbb{R}, \sigma &gt; 0.
 \end{align*}\]</span></p>
-<p>The vertical coordinates of <span class="math inline">\({\mathcal P}\)</span> on <span class="math inline">\({\mathcal C}_{-\infty}\)</span> can be generated as <span class="math display">\[\begin{align*}
-\eta + \frac{\tau}{\xi}\Bigg\{\Bigg(\sum_{j=1}^r E_j\Bigg)^{-\xi} - 1\Bigg\}, \quad r=1,2,\ldots,
+<p>The vertical coordinates of <span class="math inline">\({\mathcal P}\)</span> can be generated as <span class="math display">\[\begin{align*}
+\eta + \frac{\sigma}{\xi}\Bigg\{\Bigg(\sum_{j=1}^r E_j\Bigg)^{-\xi} - 1\Bigg\}, \quad r=1,2,\ldots;
 \end{align*}\]</span> where the <span class="math inline">\(E_j\)</span> are independent exponential random variables.</p>
 <p>Fit the Poisson process model and transform the data to a unit-rate Poisson process.</p>
 <p>The choice of threshold then amounts to choosing the highest value for which the transformed observations are consistent with a unit-rate Poisson process.</p>
@@ -207,13 +207,14 @@ Léo Belzile, HEC Montréal (joint work with Sonia Alouini and Anthony Davison)
 <h2>Martingale residuals</h2>
 <p>Threshold-stability and the Markov nature of order statistics <span class="math inline">\(X_{(1)}\leq\cdots\leq X_{(n)}\)</span> of a simple random sample drawn from <span class="math inline">\(\mathsf{GP}(\sigma,\xi)\)</span> imply that the joint density of the order statistics is <span class="math display">\[\begin{equation}
 \label{eq:Renyi}
-\prod_{j=2}^n f(x_{(j)} \mid x_{(j-1)}) f(x_{(1)})= \prod_{j=1}^n \frac{1}{\sigma_j}\left\{1 + \frac{\xi}{n+1-j}\frac{(y_{(j)}-y_{(j-1)})}{ \sigma_j}\right\}^{-(n+1-j)/\xi-1}_+,
-\end{equation}\]</span> where <span class="math inline">\(\sigma_j = (\sigma+\xi y_{j-1})/(n+1-j)\)</span> and <span class="math inline">\(y_{(0)}=0\)</span>.</p>
+\prod_{j=2}^n f(x_{(j)} \mid x_{(j-1)}) f(x_{(1)})= \prod_{j=1}^n \frac{1}{\sigma_j}\left\{1 + \frac{\xi}{n+1-j}\frac{(x_{(j)}-x_{(j-1)})}{ \sigma_j}\right\}^{-(n+1-j)/\xi-1}_+,
+\end{equation}\]</span> where <span class="math inline">\(\sigma_j = (\sigma+\xi x_{j-1})/(n+1-j)\)</span> and <span class="math inline">\(x_{(0)}=0\)</span>.</p>
 <p>This extends the Rényi representation for exponential data and provides a likelihood if the parameters are allowed to change at order statistics, provided that the parameters for the increment <span class="math inline">\(X_{(j)}-X_{(j-1)}\)</span> depend on the order statistics up to <span class="math inline">\(X_{(j-1)}\)</span>.</p>
 <p><span class="citation" data-cites="Stein:2023">Stein (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span> explores this idea to replace the threshold by a weighting scheme of the observations.</p>
 </section>
 <section id="some-problems-with-most-methods" class="slide level2">
 <h2>Some problems with (most methods)</h2>
+<div style="font-size: 80%;">
 <p>Consider the problem of selecting a threshold amongst candidates <span class="math inline">\(u_1 &lt; \cdots &lt; u_k.\)</span></p>
 <ul>
 <li>Sample overlap: Data above different thresholds are overlapping (so dependence between estimates or test statistics and <span class="math inline">\(P\)</span>-values)</li>
@@ -222,6 +223,7 @@ Léo Belzile, HEC Montréal (joint work with Sonia Alouini and Anthony Davison)
 <li>Potential for automation</li>
 <li>Non-stationarity</li>
 </ul>
+</div>
 </section>
 <section id="literature-review" class="slide level2">
 <h2>Literature review</h2>
@@ -253,7 +255,7 @@ Léo Belzile, HEC Montréal (joint work with Sonia Alouini and Anthony Davison)
 </section>
 <section id="penultimate-effects" class="slide level2">
 <h2>Penultimate effects</h2>
-<p>Arguments of <span class="citation" data-cites="smith_1987">Smith (<a href="#/references" role="doc-biblioref" onclick="">1987</a>)</span> show that a better approximation is obtained by letting the shape vary with <span class="math inline">\(u\)</span>, with <span class="math display">\[\xi_t = r'(u),\]</span> where <span class="math display">\[r(t) = \{1-F(t)\}/f(t)\]</span> is the reciprocal hazard function.</p>
+<p><span class="citation" data-cites="smith_1987">Smith (<a href="#/references" role="doc-biblioref" onclick="">1987</a>)</span> show that a better approximation is obtained by letting the shape vary with <span class="math inline">\(u\)</span>, with <span class="math display">\[\xi_t = r'(u),\]</span> where <span class="math display">\[r(t) = \{1-F(t)\}/f(t)\]</span> is the reciprocal hazard function.</p>
 </section>
 <section id="illustration-of-penultimate-effects-normal-example" class="slide level2 smaller">
 <h2>Illustration of penultimate effects: normal example</h2>
@@ -317,8 +319,8 @@ Léo Belzile, HEC Montréal (joint work with Sonia Alouini and Anthony Davison)
 <p>The EGP<span class="math inline">\((\sigma,\xi, G_\kappa)\)</span> distribution function is then <span class="math display">\[\begin{align*}
 \Pr(X\leq x) = G_\kappa\{ F(x;\sigma,\xi)\}.                     \end{align*}\]</span></p>
 <ul>
-<li><span class="citation" data-cites="Papastathopoulos.Tawn:2013">Papastathopoulos and Tawn (<a href="#/references" role="doc-biblioref" onclick="">2013</a>)</span> (their models imply the density at the origin is zero)</li>
-<li><span class="citation" data-cites="Gamet.Jalbert:2022">Gamet and Jalbert (<a href="#/references" role="doc-biblioref" onclick="">2022</a>)</span> (other models, but non-regular asymptotics).</li>
+<li><span class="citation" data-cites="Papastathopoulos.Tawn:2013">Papastathopoulos and Tawn (<a href="#/references" role="doc-biblioref" onclick="">2013</a>)</span>: models imply the density at the origin is zero.</li>
+<li><span class="citation" data-cites="Gamet.Jalbert:2022">Gamet and Jalbert (<a href="#/references" role="doc-biblioref" onclick="">2022</a>)</span> (propose two models, but non-regular asymptotics).</li>
 </ul>
 </section>
 <section id="extended-generalized-pareto-models-1" class="slide level2">
@@ -377,7 +379,7 @@ Léo Belzile, HEC Montréal (joint work with Sonia Alouini and Anthony Davison)
 <p>Fails 17% of the time in our simulations with equally spaced quantiles.</p>
 <ul>
 <li>Problems with positive definiteness of information matrices for shape increments.</li>
-<li>Method sensitive to rounding</li>
+<li>Method sensitive to rounding.</li>
 <li>Must choose the threshold sequence <span class="math inline">\(u_1 \leq \cdots u_k\)</span> carefully.</li>
 </ul>
 </section>
@@ -386,9 +388,9 @@ Léo Belzile, HEC Montréal (joint work with Sonia Alouini and Anthony Davison)
 <div class="columns">
 <div class="column" style="width:60%;">
 <p><span class="citation" data-cites="Lee:2015">Lee, Fan, and Sisson (<a href="#/references" role="doc-biblioref" onclick="">2015</a>)</span> propose constructing a threshold stability plot showing Bayesian <span class="math inline">\(p\)</span>-value for a summary statistic against thresholds, capturing the agreement between sample and simulated data from the posterior distribution.</p>
-<p>Under null hypothesis, <span class="math inline">\(p\)</span>-values should be around 0.5</p>
+<p>Under null hypothesis, <span class="math inline">\(p\)</span>-values should be around 0.5.</p>
 <ul>
-<li>Need replications to assess null distribution (very computationally intensive)</li>
+<li>Need replications to assess null distribution (very computationally intensive).</li>
 <li>Choice of statistic matters!</li>
 </ul>
 </div><div class="column" style="width:40%;">
@@ -438,12 +440,12 @@ Léo Belzile, HEC Montréal (joint work with Sonia Alouini and Anthony Davison)
 <p>Pick the threshold with the smallest average distance is chosen.</p>
 <ul>
 <li>amenable to different sampling schemes (censoring, non-identically distributed data, time-varying thresholds).</li>
-<li>computationally-intensive by design</li>
+<li>computationally-intensive by design.</li>
 </ul>
 </section>
 <section id="simulation-study-comparison-of-methods" class="slide level2 smaller">
 <h2>Simulation study: comparison of methods</h2>
-<p>We considered 13 different distributions from simulation studies in <span class="citation" data-cites="Choulakian.Stephens:2001">Choulakian and Stephens (<a href="#/references" role="doc-biblioref" onclick="">2001</a>)</span>}and <span class="citation" data-cites="Schneider:2021">Schneider, Krajina, and Krivobokova (<a href="#/references" role="doc-biblioref" onclick="">2021</a>)</span>.</p>
+<p>We considered 13 different distributions from simulation studies in <span class="citation" data-cites="Choulakian.Stephens:2001">Choulakian and Stephens (<a href="#/references" role="doc-biblioref" onclick="">2001</a>)</span> and <span class="citation" data-cites="Schneider:2021">Schneider, Krajina, and Krivobokova (<a href="#/references" role="doc-biblioref" onclick="">2021</a>)</span>.</p>
 <ul>
 <li>Consider 1000 replications of IID data, data with serial correlation in the tail, rounded observations.</li>
 <li>Data of size <span class="math inline">\(n\in \{1000, 2000\}\)</span> with candidate thresholds at the sample <span class="math inline">\(\{0.8, 0.81, \ldots, 0.99\}\)</span> quantiles, keeping a minimum of 20 exceedances.</li>
@@ -467,8 +469,8 @@ Léo Belzile, HEC Montréal (joint work with Sonia Alouini and Anthony Davison)
 <section id="more-comments" class="slide level2 smaller">
 <h2>More comments</h2>
 <ul>
-<li>Mean residual life plots are uniformly scattered</li>
-<li>Varty metric diagnostic also leads to very small thresholds (mean is near 80%)</li>
+<li>Mean residual life plots are uniformly scattered.</li>
+<li>Varty metric diagnostic also leads to very small thresholds (mean is near 80%).</li>
 <li><span class="citation" data-cites="Northrop.Attalides.Jonathan:2017">Northrop, Attalides, and Jonathan (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span> and <span class="citation" data-cites="Thompson:2009">Thompson et al. (<a href="#/references" role="doc-biblioref" onclick="">2009</a>)</span> lead to much less agreement and a greater variability of selected quantile levels for the thresholds. For the cross-validation approach, this is in line with findings of <span class="citation" data-cites="Murphy.Tawn.Varty:2024">Murphy, Tawn, and Varty (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span>.</li>
 <li>The oracle method returns value that are on average between the 87% and the 90% quantile.</li>
 <li>Wadsworth’s sequential testing performs best with heavy tailed distributions, but otherwise is one of the worst in terms of ranking.</li>
@@ -477,23 +479,23 @@ Léo Belzile, HEC Montréal (joint work with Sonia Alouini and Anthony Davison)
 <section id="conclusions-and-future-work" class="slide level2">
 <h2>Conclusions and future work</h2>
 <ul>
-<li>Is the problem well-formulated? There is no ``correct’’ threshold, so are we barking up the wrong tree?</li>
+<li>Is the problem well-formulated? There is no “correct” threshold, so are we barking up the wrong tree?</li>
 <li>Weighting with different threshold choices to account for uncertainty.</li>
 <li>Should we be fitting sub-asymptotic models to much more data?</li>
 </ul>
 </section>
 <section id="semiparametric-methods" class="slide level2">
 <h2>Semiparametric methods</h2>
-<p>The paper also compares 18 different methods using Hill-type estimator for heavy-tailed data.</p>
+<p>The paper also compares 18 different semiparametric methods using Hill-type estimator for heavy-tailed data.</p>
 <ul>
 <li>Careful: many numerical implementations don’t specify a minimum sample size!</li>
-<li>Primer: methods based on minimization of the asymptotic mean squared error of the Hill estimator <span class="citation" data-cites="Caeiro.Gomes:2016">(<a href="#/references" role="doc-biblioref" onclick="">Caeiro and Gomes 2016</a>)</span>, or the double nonparametric bootstrap scheme <span class="citation" data-cites="Gomes.Figueiredo.Neves:2012">Gomes, Figueiredo, and Neves (<a href="#/references" role="doc-biblioref" onclick="">2012</a>)</span>, and random block maxima estimator of <span class="citation" data-cites="Wager:2014">Wager (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span> with empirical risk minimization perform best</li>
+<li>Primer: methods based on minimization of the asymptotic mean squared error of the Hill estimator <span class="citation" data-cites="Caeiro.Gomes:2016">(<a href="#/references" role="doc-biblioref" onclick="">Caeiro and Gomes 2016</a>)</span>, or the double nonparametric bootstrap scheme <span class="citation" data-cites="Gomes.Figueiredo.Neves:2012">Gomes, Figueiredo, and Neves (<a href="#/references" role="doc-biblioref" onclick="">2012</a>)</span>, and random block maxima estimator of <span class="citation" data-cites="Wager:2014">Wager (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span> with empirical risk minimization perform best.</li>
 </ul>
 </section>
 <section id="dont-use-the-following" class="slide level2 smaller">
 <h2>Don’t use the following</h2>
 <ul>
-<li>Methods based on minimization of the asymptotic mean squared error can break down catastrophically for particular datasets.</li>
+<li>Methods based on minimization of the asymptotic mean squared error can break down catastrophically for particular data sets.</li>
 <li>Methods by <span class="citation" data-cites="Gomes:2013">Gomes et al. (<a href="#/references" role="doc-biblioref" onclick="">2013</a>)</span> and <span class="citation" data-cites="Hall.Welsh:1985">Hall and Welsh (<a href="#/references" role="doc-biblioref" onclick="">1985</a>)</span> behave erratically with small shape parameters: these procedures lead to strongly biased shape parameter estimates. This is due to them keeping more than 15% of the data for inference.</li>
 <li><span class="citation" data-cites="Drees.Kaufmann:1998">Drees and Kaufmann (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span> bias-reduction method leads to small number of order statistics, with very large width of the confidence intervals (unwanted variability).</li>
 <li>Many other methods are extremely variable.</li>

@@ -25,21 +25,21 @@
     "href": "EVA2025-choosing-threshold.html#point-process-formulation",
     "title": "Choosing the threshold in extreme value analysis",
     "section": "Point process formulation",
-    "text": "Point process formulation\nThe GPD can be derived from a limiting Poisson process \\({\\mathcal P}\\) under which rare events occur in the \\((t,y)\\)-plane with measure \\[\\begin{align*}\n\\Lambda[(t',t)\\times[u,\\infty)] = (t_2-t_1)\\{1+\\xi(u-\\eta)/\\tau\\}^{-1/\\xi}_+, \\qquad \\eta \\in \\mathbb{R}, \\tau &gt; 0\n\\end{align*}\\]\nThe vertical coordinates of \\({\\mathcal P}\\) on \\({\\mathcal C}_{-\\infty}\\) can be generated as \\[\\begin{align*}\n\\eta + \\frac{\\tau}{\\xi}\\Bigg\\{\\Bigg(\\sum_{j=1}^r E_j\\Bigg)^{-\\xi} - 1\\Bigg\\}, \\quad r=1,2,\\ldots,\n\\end{align*}\\] where the \\(E_j\\) are independent exponential random variables.\nFit the Poisson process model and transform the data to a unit-rate Poisson process.\nThe choice of threshold then amounts to choosing the highest value for which the transformed observations are consistent with a unit-rate Poisson process."
+    "text": "Point process formulation\nThe GPD can be derived from a limiting Poisson process \\({\\mathcal P}\\) under which rare events occur in the \\((t,y)\\)-plane with measure \\[\\begin{align*}\n\\Lambda[(t',t)\\times[u,\\infty)] = (t_2-t_1)\\{1+\\xi(u-\\eta)/\\sigma\\}^{-1/\\xi}_+, \\qquad \\eta \\in \\mathbb{R}, \\sigma &gt; 0.\n\\end{align*}\\]\nThe vertical coordinates of \\({\\mathcal P}\\) can be generated as \\[\\begin{align*}\n\\eta + \\frac{\\sigma}{\\xi}\\Bigg\\{\\Bigg(\\sum_{j=1}^r E_j\\Bigg)^{-\\xi} - 1\\Bigg\\}, \\quad r=1,2,\\ldots;\n\\end{align*}\\] where the \\(E_j\\) are independent exponential random variables.\nFit the Poisson process model and transform the data to a unit-rate Poisson process.\nThe choice of threshold then amounts to choosing the highest value for which the transformed observations are consistent with a unit-rate Poisson process."
   },
   {
     "objectID": "EVA2025-choosing-threshold.html#martingale-residuals",
     "href": "EVA2025-choosing-threshold.html#martingale-residuals",
     "title": "Choosing the threshold in extreme value analysis",
     "section": "Martingale residuals",
-    "text": "Martingale residuals\nThreshold-stability and the Markov nature of order statistics \\(X_{(1)}\\leq\\cdots\\leq X_{(n)}\\) of a simple random sample drawn from \\(\\mathsf{GP}(\\sigma,\\xi)\\) imply that the joint density of the order statistics is \\[\\begin{equation}\n\\label{eq:Renyi}\n\\prod_{j=2}^n f(x_{(j)} \\mid x_{(j-1)}) f(x_{(1)})= \\prod_{j=1}^n \\frac{1}{\\sigma_j}\\left\\{1 + \\frac{\\xi}{n+1-j}\\frac{(y_{(j)}-y_{(j-1)})}{ \\sigma_j}\\right\\}^{-(n+1-j)/\\xi-1}_+,\n\\end{equation}\\] where \\(\\sigma_j = (\\sigma+\\xi y_{j-1})/(n+1-j)\\) and \\(y_{(0)}=0\\).\nThis extends the Rényi representation for exponential data and provides a likelihood if the parameters are allowed to change at order statistics, provided that the parameters for the increment \\(X_{(j)}-X_{(j-1)}\\) depend on the order statistics up to \\(X_{(j-1)}\\).\nStein (2023) explores this idea to replace the threshold by a weighting scheme of the observations."
+    "text": "Martingale residuals\nThreshold-stability and the Markov nature of order statistics \\(X_{(1)}\\leq\\cdots\\leq X_{(n)}\\) of a simple random sample drawn from \\(\\mathsf{GP}(\\sigma,\\xi)\\) imply that the joint density of the order statistics is \\[\\begin{equation}\n\\label{eq:Renyi}\n\\prod_{j=2}^n f(x_{(j)} \\mid x_{(j-1)}) f(x_{(1)})= \\prod_{j=1}^n \\frac{1}{\\sigma_j}\\left\\{1 + \\frac{\\xi}{n+1-j}\\frac{(x_{(j)}-x_{(j-1)})}{ \\sigma_j}\\right\\}^{-(n+1-j)/\\xi-1}_+,\n\\end{equation}\\] where \\(\\sigma_j = (\\sigma+\\xi x_{j-1})/(n+1-j)\\) and \\(x_{(0)}=0\\).\nThis extends the Rényi representation for exponential data and provides a likelihood if the parameters are allowed to change at order statistics, provided that the parameters for the increment \\(X_{(j)}-X_{(j-1)}\\) depend on the order statistics up to \\(X_{(j-1)}\\).\nStein (2023) explores this idea to replace the threshold by a weighting scheme of the observations."
   },
   {
     "objectID": "EVA2025-choosing-threshold.html#some-problems-with-most-methods",
     "href": "EVA2025-choosing-threshold.html#some-problems-with-most-methods",
     "title": "Choosing the threshold in extreme value analysis",
     "section": "Some problems with (most methods)",
-    "text": "Some problems with (most methods)\nConsider the problem of selecting a threshold amongst candidates \\(u_1 &lt; \\cdots &lt; u_k.\\)\n\nSample overlap: Data above different thresholds are overlapping (so dependence between estimates or test statistics and \\(P\\)-values)\nNon-nested models: peaks-over-threshold methods only consider are conditional models (so most models are not nested).\nMultiple testing\nPotential for automation\nNon-stationarity"
+    "text": "Some problems with (most methods)\n\nConsider the problem of selecting a threshold amongst candidates \\(u_1 &lt; \\cdots &lt; u_k.\\)\n\nSample overlap: Data above different thresholds are overlapping (so dependence between estimates or test statistics and \\(P\\)-values)\nNon-nested models: peaks-over-threshold methods only consider are conditional models (so most models are not nested).\nMultiple testing\nPotential for automation\nNon-stationarity"
   },
   {
     "objectID": "EVA2025-choosing-threshold.html#literature-review",
@@ -67,7 +67,7 @@
     "href": "EVA2025-choosing-threshold.html#penultimate-effects",
     "title": "Choosing the threshold in extreme value analysis",
     "section": "Penultimate effects",
-    "text": "Penultimate effects\nArguments of Smith (1987) show that a better approximation is obtained by letting the shape vary with \\(u\\), with \\[\\xi_t = r'(u),\\] where \\[r(t) = \\{1-F(t)\\}/f(t)\\] is the reciprocal hazard function."
+    "text": "Penultimate effects\nSmith (1987) show that a better approximation is obtained by letting the shape vary with \\(u\\), with \\[\\xi_t = r'(u),\\] where \\[r(t) = \\{1-F(t)\\}/f(t)\\] is the reciprocal hazard function."
   },
   {
     "objectID": "EVA2025-choosing-threshold.html#illustration-of-penultimate-effects-normal-example",
@@ -116,7 +116,7 @@
     "href": "EVA2025-choosing-threshold.html#extended-generalized-pareto-models",
     "title": "Choosing the threshold in extreme value analysis",
     "section": "Extended generalized Pareto models",
-    "text": "Extended generalized Pareto models\nEmbed generalized Pareto \\(F(x;\\sigma,\\xi)\\) in a more flexible model with the same tail properties using a continuous distribution function \\(G_\\kappa\\) on \\([0,1]\\) (Naveau 2025).\nThe EGP\\((\\sigma,\\xi, G_\\kappa)\\) distribution function is then \\[\\begin{align*}\n\\Pr(X\\leq x) = G_\\kappa\\{ F(x;\\sigma,\\xi)\\}.                     \\end{align*}\\]\n\nPapastathopoulos and Tawn (2013) (their models imply the density at the origin is zero)\nGamet and Jalbert (2022) (other models, but non-regular asymptotics)."
+    "text": "Extended generalized Pareto models\nEmbed generalized Pareto \\(F(x;\\sigma,\\xi)\\) in a more flexible model with the same tail properties using a continuous distribution function \\(G_\\kappa\\) on \\([0,1]\\) (Naveau 2025).\nThe EGP\\((\\sigma,\\xi, G_\\kappa)\\) distribution function is then \\[\\begin{align*}\n\\Pr(X\\leq x) = G_\\kappa\\{ F(x;\\sigma,\\xi)\\}.                     \\end{align*}\\]\n\nPapastathopoulos and Tawn (2013): models imply the density at the origin is zero.\nGamet and Jalbert (2022) (propose two models, but non-regular asymptotics)."
   },
   {
     "objectID": "EVA2025-choosing-threshold.html#extended-generalized-pareto-models-1",
@@ -165,14 +165,14 @@
     "href": "EVA2025-choosing-threshold.html#comments-on-wadsworth-2016",
     "title": "Choosing the threshold in extreme value analysis",
     "section": "Comments on Wadsworth (2016)",
-    "text": "Comments on Wadsworth (2016)\nFails 17% of the time in our simulations with equally spaced quantiles.\n\nProblems with positive definiteness of information matrices for shape increments.\nMethod sensitive to rounding\nMust choose the threshold sequence \\(u_1 \\leq \\cdots u_k\\) carefully."
+    "text": "Comments on Wadsworth (2016)\nFails 17% of the time in our simulations with equally spaced quantiles.\n\nProblems with positive definiteness of information matrices for shape increments.\nMethod sensitive to rounding.\nMust choose the threshold sequence \\(u_1 \\leq \\cdots u_k\\) carefully."
   },
   {
     "objectID": "EVA2025-choosing-threshold.html#bayesian-measures-of-surprise",
     "href": "EVA2025-choosing-threshold.html#bayesian-measures-of-surprise",
     "title": "Choosing the threshold in extreme value analysis",
     "section": "Bayesian measures of surprise",
-    "text": "Bayesian measures of surprise\n\n\nLee, Fan, and Sisson (2015) propose constructing a threshold stability plot showing Bayesian \\(p\\)-value for a summary statistic against thresholds, capturing the agreement between sample and simulated data from the posterior distribution.\nUnder null hypothesis, \\(p\\)-values should be around 0.5\n\nNeed replications to assess null distribution (very computationally intensive)\nChoice of statistic matters!"
+    "text": "Bayesian measures of surprise\n\n\nLee, Fan, and Sisson (2015) propose constructing a threshold stability plot showing Bayesian \\(p\\)-value for a summary statistic against thresholds, capturing the agreement between sample and simulated data from the posterior distribution.\nUnder null hypothesis, \\(p\\)-values should be around 0.5.\n\nNeed replications to assess null distribution (very computationally intensive).\nChoice of statistic matters!"
   },
   {
     "objectID": "EVA2025-choosing-threshold.html#predictive-distribution",
@@ -193,14 +193,14 @@
     "href": "EVA2025-choosing-threshold.html#metric-based-adjustment",
     "title": "Choosing the threshold in extreme value analysis",
     "section": "Metric-based adjustment",
-    "text": "Metric-based adjustment\nBuild metric based on exponential (or generalized Pareto quantile \\(F_0^{-1}\\{p_i\\}\\) against \\(F^{-1}_{b}(p_i)\\) with mean absolute difference or mean squared difference.\nPick the threshold with the smallest average distance is chosen.\n\namenable to different sampling schemes (censoring, non-identically distributed data, time-varying thresholds).\ncomputationally-intensive by design"
+    "text": "Metric-based adjustment\nBuild metric based on exponential (or generalized Pareto quantile \\(F_0^{-1}\\{p_i\\}\\) against \\(F^{-1}_{b}(p_i)\\) with mean absolute difference or mean squared difference.\nPick the threshold with the smallest average distance is chosen.\n\namenable to different sampling schemes (censoring, non-identically distributed data, time-varying thresholds).\ncomputationally-intensive by design."
   },
   {
     "objectID": "EVA2025-choosing-threshold.html#simulation-study-comparison-of-methods",
     "href": "EVA2025-choosing-threshold.html#simulation-study-comparison-of-methods",
     "title": "Choosing the threshold in extreme value analysis",
     "section": "Simulation study: comparison of methods",
-    "text": "Simulation study: comparison of methods\nWe considered 13 different distributions from simulation studies in Choulakian and Stephens (2001)}and Schneider, Krajina, and Krivobokova (2021).\n\nConsider 1000 replications of IID data, data with serial correlation in the tail, rounded observations.\nData of size \\(n\\in \\{1000, 2000\\}\\) with candidate thresholds at the sample \\(\\{0.8, 0.81, \\ldots, 0.99\\}\\) quantiles, keeping a minimum of 20 exceedances.\nEvaluate bias, variance, RMSE of point estimator for 0.999 quantile.\nCompare to oracle (model with the closest quantile estimate among candidates)."
+    "text": "Simulation study: comparison of methods\nWe considered 13 different distributions from simulation studies in Choulakian and Stephens (2001) and Schneider, Krajina, and Krivobokova (2021).\n\nConsider 1000 replications of IID data, data with serial correlation in the tail, rounded observations.\nData of size \\(n\\in \\{1000, 2000\\}\\) with candidate thresholds at the sample \\(\\{0.8, 0.81, \\ldots, 0.99\\}\\) quantiles, keeping a minimum of 20 exceedances.\nEvaluate bias, variance, RMSE of point estimator for 0.999 quantile.\nCompare to oracle (model with the closest quantile estimate among candidates)."
   },
   {
     "objectID": "EVA2025-choosing-threshold.html#which-quantile-level-on-average",
@@ -221,28 +221,28 @@
     "href": "EVA2025-choosing-threshold.html#more-comments",
     "title": "Choosing the threshold in extreme value analysis",
     "section": "More comments",
-    "text": "More comments\n\nMean residual life plots are uniformly scattered\nVarty metric diagnostic also leads to very small thresholds (mean is near 80%)\nNorthrop, Attalides, and Jonathan (2017) and Thompson et al. (2009) lead to much less agreement and a greater variability of selected quantile levels for the thresholds. For the cross-validation approach, this is in line with findings of Murphy, Tawn, and Varty (2025).\nThe oracle method returns value that are on average between the 87% and the 90% quantile.\nWadsworth’s sequential testing performs best with heavy tailed distributions, but otherwise is one of the worst in terms of ranking."
+    "text": "More comments\n\nMean residual life plots are uniformly scattered.\nVarty metric diagnostic also leads to very small thresholds (mean is near 80%).\nNorthrop, Attalides, and Jonathan (2017) and Thompson et al. (2009) lead to much less agreement and a greater variability of selected quantile levels for the thresholds. For the cross-validation approach, this is in line with findings of Murphy, Tawn, and Varty (2025).\nThe oracle method returns value that are on average between the 87% and the 90% quantile.\nWadsworth’s sequential testing performs best with heavy tailed distributions, but otherwise is one of the worst in terms of ranking."
   },
   {
     "objectID": "EVA2025-choosing-threshold.html#conclusions-and-future-work",
     "href": "EVA2025-choosing-threshold.html#conclusions-and-future-work",
     "title": "Choosing the threshold in extreme value analysis",
     "section": "Conclusions and future work",
-    "text": "Conclusions and future work\n\nIs the problem well-formulated? There is no ``correct’’ threshold, so are we barking up the wrong tree?\nWeighting with different threshold choices to account for uncertainty.\nShould we be fitting sub-asymptotic models to much more data?"
+    "text": "Conclusions and future work\n\nIs the problem well-formulated? There is no “correct” threshold, so are we barking up the wrong tree?\nWeighting with different threshold choices to account for uncertainty.\nShould we be fitting sub-asymptotic models to much more data?"
   },
   {
     "objectID": "EVA2025-choosing-threshold.html#semiparametric-methods",
     "href": "EVA2025-choosing-threshold.html#semiparametric-methods",
     "title": "Choosing the threshold in extreme value analysis",
     "section": "Semiparametric methods",
-    "text": "Semiparametric methods\nThe paper also compares 18 different methods using Hill-type estimator for heavy-tailed data.\n\nCareful: many numerical implementations don’t specify a minimum sample size!\nPrimer: methods based on minimization of the asymptotic mean squared error of the Hill estimator (Caeiro and Gomes 2016), or the double nonparametric bootstrap scheme Gomes, Figueiredo, and Neves (2012), and random block maxima estimator of Wager (2014) with empirical risk minimization perform best"
+    "text": "Semiparametric methods\nThe paper also compares 18 different semiparametric methods using Hill-type estimator for heavy-tailed data.\n\nCareful: many numerical implementations don’t specify a minimum sample size!\nPrimer: methods based on minimization of the asymptotic mean squared error of the Hill estimator (Caeiro and Gomes 2016), or the double nonparametric bootstrap scheme Gomes, Figueiredo, and Neves (2012), and random block maxima estimator of Wager (2014) with empirical risk minimization perform best."
   },
   {
     "objectID": "EVA2025-choosing-threshold.html#dont-use-the-following",
     "href": "EVA2025-choosing-threshold.html#dont-use-the-following",
     "title": "Choosing the threshold in extreme value analysis",
     "section": "Don’t use the following",
-    "text": "Don’t use the following\n\nMethods based on minimization of the asymptotic mean squared error can break down catastrophically for particular datasets.\nMethods by Gomes et al. (2013) and Hall and Welsh (1985) behave erratically with small shape parameters: these procedures lead to strongly biased shape parameter estimates. This is due to them keeping more than 15% of the data for inference.\nDrees and Kaufmann (1998) bias-reduction method leads to small number of order statistics, with very large width of the confidence intervals (unwanted variability).\nMany other methods are extremely variable."
+    "text": "Don’t use the following\n\nMethods based on minimization of the asymptotic mean squared error can break down catastrophically for particular data sets.\nMethods by Gomes et al. (2013) and Hall and Welsh (1985) behave erratically with small shape parameters: these procedures lead to strongly biased shape parameter estimates. This is due to them keeping more than 15% of the data for inference.\nDrees and Kaufmann (1998) bias-reduction method leads to small number of order statistics, with very large width of the confidence intervals (unwanted variability).\nMany other methods are extremely variable."
   },
   {
     "objectID": "EVA2025-choosing-threshold.html#references",
