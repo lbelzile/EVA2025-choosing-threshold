@@ -53,7 +53,7 @@ options(digits = 3, width = 75)
 In the simplest applications:
 
 1. we choose a high threshold $u$
-    - equivalently, choose the number of upper order statistics $k\equiv n_u$ with threshold $u=X_{n-k}$.
+    - equivalently, choose the number of upper order statistics $n_u$ with threshold $u=X_{(n-n_u)}$.
 2. we fit the limiting generalized Pareto distribution with scale $\sigma_u$ and shape $\xi$ to exceedances $X-u$ over threshold $u$.
     - if the shape $\xi>0$, we can use rather Hill's estimator
 3. we use the resulting model for extrapolation beyond $u$.
@@ -100,7 +100,7 @@ Threshold-stability and the Markov nature of order statistics $X_{(1)}\leq\cdots
 \label{eq:Renyi}
 \prod_{j=2}^n f(x_{(j)} \mid x_{(j-1)}) f(x_{(1)})= \prod_{j=1}^n \frac{1}{\sigma_j}\left\{1 + \frac{\xi}{n+1-j}\frac{(x_{(j)}-x_{(j-1)})}{ \sigma_j}\right\}^{-(n+1-j)/\xi-1}_+,
 \end{equation}
-where $\sigma_j = (\sigma+\xi x_{j-1})/(n+1-j)$ and $x_{(0)}=0$.
+where $\sigma_j = (\sigma+\xi x_{(j-1)})/(n+1-j)$ and $x_{(0)}=0$.
 
 
 This extends the Rényi representation for exponential data and  provides a likelihood if the parameters are allowed to change at order statistics, provided that the parameters for the increment $X_{(j)}-X_{(j-1)}$ depend on the order statistics up to $X_{(j-1)}$.
@@ -113,11 +113,11 @@ This extends the Rényi representation for exponential data and  provides a like
 
 Consider the problem of selecting a threshold amongst candidates $u_1 < \cdots < u_k.$
 
-- Sample overlap: Data above different thresholds are overlapping (so dependence between estimates or test statistics and $P$-values)
+- Sample overlap: Data above different thresholds are overlapping (so dependence between estimates or test statistics and $P$-values).
 - Non-nested models: peaks-over-threshold methods only consider are conditional models (so most models are not nested).
-- Multiple testing
-- Potential for automation
-- Non-stationarity
+- Multiple testing.
+- Potential for automation.
+- Non-stationarity.
 
 :::
 
@@ -167,15 +167,9 @@ knitr::include_graphics("figures/Fig-penultimate_normal.png")
 ```
 
 
-## Graphical procedures
+## Visual diagnostics on Padova data {.smaller}
 
-Generalized Pareto distribution is threshold stable (shape is constant).
-
-- Mean residual life plots [@Davison.Smith:1990]
-- Threshold stability plots
-- Hill plots; see, e.g., @Resnick:2007
-
-## Visual diagnostics on Padova data
+Mean residual life [@Davison.Smith:1990], parameter stability and Hill plots.
 
 ```{r}
 #| eval: true
@@ -189,9 +183,9 @@ Which threshold would you choose?
 
 ## Caveats
 
-- Difficulty in automating selection (need visual inspection); proposals in @Langousis:2016 or @Danielsson:2019, but both fall short.
-- sample overlap leads to dependence between estimates (pointwise confidence intervals) + multiple testing
-- affected by penultimate effects (shape varies with $u$ in practice)
+- Difficulty in automating selection (need visual inspection); proposals in @Langousis:2016 or @Danielsson:2019, but both fall short:
+- sample overlap leads to dependence between estimates (pointwise confidence intervals) + multiple testing.
+- affected by penultimate effects (shape varies with $u$ in practice).
 - plots say nothing about goodness-of-fit!
 
 ## Stability? {.smaller}
@@ -205,11 +199,11 @@ Which threshold would you choose?
 knitr::include_graphics("figures/Fig-tstabplots4.png")
 ```
 
-Hill, PORT and random block maxima [@Wager:2014] estimates as a function of $k$ (sample paths of RBM are $\mathcal{C}^{\infty}$).
+Hill, PORT and random block maxima [@Wager:2014] estimates as a function of $n_u$ (sample paths of RBM are $\mathcal{C}^{\infty}$).
 
 ## Generalized Pareto model extensions
 
-Build extended models with additional parameters (with continuity constraints) and test for equality of shape 
+Build extended models with additional parameters (with continuity constraints) and test for equality of shape.
 
 @Northrop.Coleman:2014: piecewise generalized Pareto model, score tests for equality.
 
@@ -244,9 +238,9 @@ Glue a distribution for the bulk with one for the tail using a mixture of disjoi
 
 ## Goodness-of-fit measures
 
-1. Fit a generalized Pareto distribution at each threshold $u_1< \cdots < u_k$
+1. Fit a generalized Pareto distribution at each threshold $u_1< \cdots < u_k$.
 2. Compute either
-   - a suitable statistic which indicates departure from the posulated distribution
+   - a suitable statistic which indicates departure from the posulated distribution.
    - a measure of discrepancy between empirical distribution of exceedances above $u$ and generalized Pareto model (via Kolmogorov--Smirnov, Cramér--von Mises, etc.)
 3. Perform tests sequentially until rejection. 
 
@@ -255,7 +249,7 @@ Can also be done on quantile scale [@Danielsson:2019].
 ## Some proposals
 
 - Idea dates back to @Pickands:1975. 
-- @Choulakian.Stephens:2001, @Bader.Yan.Zhang:2018 (using ForwardStop)
+- @Choulakian.Stephens:2001, @Bader.Yan.Zhang:2018 (using ForwardStop).
 - Recent proposals using $L$-moment estimators including @Kiran.Srinivas:2021, @Solari:2017, @SilvaLomba.FragaAlves:2020.
 
 
