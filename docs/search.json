@@ -18,56 +18,56 @@
     "href": "EVA2025-choosing-threshold.html#limiting-distribution-and-threshold-stability",
     "title": "Choosing the threshold in extreme value analysis",
     "section": "Limiting distribution and threshold stability",
-    "text": "Limiting distribution and threshold stability\n\nLimiting distribution of threshold exceedances is generalized Pareto.\nIf the limit was exact and \\(X-u\\sim \\mathsf{GP}(\\sigma_u,\\xi)\\) and \\(v&gt;u\\), then the conditional distribution of \\(X-v\\) given that \\(X&gt;v\\) is also GPD, with the same shape parameter and scale parameter \\(\\sigma_v=\\sigma_u+ \\xi(v-u)\\).\n\nWhen \\(\\xi&gt;-1\\), we have \\[\\mathsf{E}(X-u) = \\sigma_u/(1+\\xi).\\]"
-  },
-  {
-    "objectID": "EVA2025-choosing-threshold.html#point-process-formulation",
-    "href": "EVA2025-choosing-threshold.html#point-process-formulation",
-    "title": "Choosing the threshold in extreme value analysis",
-    "section": "Point process formulation",
-    "text": "Point process formulation\nThe GPD can be derived from a limiting Poisson process \\({\\mathcal P}\\) under which rare events occur in the \\((t,y)\\)-plane with measure \\[\\begin{align*}\n\\Lambda[(t',t)\\times[u,\\infty)] = (t_2-t_1)\\{1+\\xi(u-\\eta)/\\sigma\\}^{-1/\\xi}_+, \\qquad \\eta \\in \\mathbb{R}, \\sigma &gt; 0.\n\\end{align*}\\]\nThe vertical coordinates of \\({\\mathcal P}\\) can be generated as \\[\\begin{align*}\n\\eta + \\frac{\\sigma}{\\xi}\\Bigg\\{\\Bigg(\\sum_{j=1}^r E_j\\Bigg)^{-\\xi} - 1\\Bigg\\}, \\quad r=1,2,\\ldots;\n\\end{align*}\\] where the \\(E_j\\) are independent exponential random variables.\nFit the Poisson process model and transform the data to a unit-rate Poisson process.\nThe choice of threshold then amounts to choosing the highest value for which the transformed observations are consistent with a unit-rate Poisson process."
-  },
-  {
-    "objectID": "EVA2025-choosing-threshold.html#some-problems-with-most-methods",
-    "href": "EVA2025-choosing-threshold.html#some-problems-with-most-methods",
-    "title": "Choosing the threshold in extreme value analysis",
-    "section": "Some problems with (most methods)",
-    "text": "Some problems with (most methods)\n\nConsider selecting a threshold amongst candidates \\(u_1 &lt; \\cdots &lt; u_k.\\)\n\nSample overlap: Data above different thresholds are overlapping (so dependence between estimates or test statistics and \\(P\\)-values).\nNon-nested models: we only model exceedances above \\(u_j\\) (so most models are not nested).\nMultiple testing.\nPotential for automation.\nNon-stationarity."
+    "text": "Limiting distribution and threshold stability\n\nLimiting distribution of threshold exceedances is generalized Pareto. If the limit was exact and \\(X-u\\sim \\mathsf{GPD}(\\sigma_u,\\xi)\\)\nFor higher threshold \\(v&gt;u\\), then \\[\\begin{align*}\nX-v \\mid X&gt;v \\sim \\mathsf{GPD}\\{\\sigma_v=\\sigma_u+ \\xi(v-u), \\xi\\}.\n\\end{align*}\\]\nProvided \\(\\xi&gt;-1\\), the expected value of exceedances is \\[\\mathsf{E}(X-u) = \\sigma_u/(1+\\xi).\\]"
   },
   {
     "objectID": "EVA2025-choosing-threshold.html#literature-review",
     "href": "EVA2025-choosing-threshold.html#literature-review",
     "title": "Choosing the threshold in extreme value analysis",
     "section": "Literature review",
-    "text": "Literature review\nThere are earlier reviews of the topic, but the literature keeps increasing…\n\nThe most comprehensive reviews are Scarrott and MacDonald (2012), Caeiro and Gomes (2016) and Langousis et al. (2016).\nSelect numerical comparisons in Gomes and Oliveira (2001), Murphy, Tawn, and Varty (2025) and Schneider, Krajina, and Krivobokova (2021), among others."
+    "text": "Literature review\nThere are earlier reviews of the topic, but the literature keeps increasing…\n\nThe most comprehensive reviews are Scarrott and MacDonald (2012), Caeiro and Gomes (2016) and Langousis et al. (2016).\nSelective numerical comparisons in Gomes and Oliveira (2001), Murphy, Tawn, and Varty (2025) and Schneider, Krajina, and Krivobokova (2021), among others."
+  },
+  {
+    "objectID": "EVA2025-choosing-threshold.html#some-problems-with-most-methods",
+    "href": "EVA2025-choosing-threshold.html#some-problems-with-most-methods",
+    "title": "Choosing the threshold in extreme value analysis",
+    "section": "Some problems with (most methods)",
+    "text": "Some problems with (most methods)\n\nConsider selecting a threshold among candidates \\(u_1 &lt; \\cdots &lt; u_k.\\)\n\nSample overlap: data above different thresholds are overlapping (so dependence between estimates or test statistics and \\(P\\)-values).\nNon-nested models: we only model exceedances above \\(u_j\\) (so most models are not nested).\nMultiple testing problem.\nPotential for automation.\nNon-stationarity (dependence on covariate, change over time)."
   },
   {
     "objectID": "EVA2025-choosing-threshold.html#objective",
     "href": "EVA2025-choosing-threshold.html#objective",
     "title": "Choosing the threshold in extreme value analysis",
     "section": "Objective",
-    "text": "Objective\nWe provide an extensive review of threshold selection mechanisms for peak over threshold analysis, including\n\nsemiparametric methods based on Hill’s estimator (not covered in this presentation for the sake of time),\nvisual diagnostics,\ngoodness-of-fit tests,\nextended generalized Pareto models."
+    "text": "Objective\nWe provide an extensive review of threshold selection mechanisms for peak over threshold analysis, including\n\nsemiparametric methods based on Hill’s estimator (not covered in this presentation for the sake of time),\nvisual diagnostics,\ngoodness-of-fit tests,\nextended generalized Pareto models,\netc."
   },
   {
     "objectID": "EVA2025-choosing-threshold.html#how-to-benchmark-methods",
     "href": "EVA2025-choosing-threshold.html#how-to-benchmark-methods",
     "title": "Choosing the threshold in extreme value analysis",
     "section": "How to benchmark methods?",
-    "text": "How to benchmark methods?\nIn practice, we care about\n\nthe extrapolation, often a high quantile (return level), or\na probability of exceedance.\n\nBenchmarking the method based on proximity with the asymptotic shape parameter is not a good point of reference.\nScale and shape parameters are negatively correlated."
+    "text": "How to benchmark methods?\nWhat makes a threshold procedure good? In practice, we care about the extrapolation, often\n\na high quantile (return level), or\na probability of exceedance.\n\nBenchmarking the method based on proximity with the asymptotic shape parameter is not a good point of reference.\n\nScale and shape parameters are negatively correlated."
   },
   {
     "objectID": "EVA2025-choosing-threshold.html#penultimate-effects",
     "href": "EVA2025-choosing-threshold.html#penultimate-effects",
     "title": "Choosing the threshold in extreme value analysis",
     "section": "Penultimate effects",
-    "text": "Penultimate effects\nSmith (1987) show that a better approximation is obtained by letting the shape vary with \\(u\\), with \\[\\xi_t = r'(u),\\] where \\[r(t) = \\{1-F(t)\\}/f(t)\\] is the reciprocal hazard function."
+    "text": "Penultimate effects\nSmith (1987) show that a better approximation is obtained by letting the shape vary with \\(u\\), with \\(\\xi_t = r'(u),\\) where \\[r(t) = \\{1-F(t)\\}/f(t)\\] is the reciprocal hazard function.\n\nmev package: smith.penult(family = \"norm\", method = \"pot\", qu = c(0.9, 0.95, 0.99))."
   },
   {
     "objectID": "EVA2025-choosing-threshold.html#illustration-of-penultimate-effects-normal-example",
     "href": "EVA2025-choosing-threshold.html#illustration-of-penultimate-effects-normal-example",
     "title": "Choosing the threshold in extreme value analysis",
     "section": "Illustration of penultimate effects: normal example",
-    "text": "Illustration of penultimate effects: normal example\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nConditional quantiles above threshold, rescaled. 45\\(^{\\circ}\\) line shows limiting exponential with true conditional (black), fitted GPD with 1M observations (dashed red) and penultimate (green)."
+    "text": "Illustration of penultimate effects: normal example"
+  },
+  {
+    "objectID": "EVA2025-choosing-threshold.html#illustration-of-penultimate-effects-normal-quantiles",
+    "href": "EVA2025-choosing-threshold.html#illustration-of-penultimate-effects-normal-quantiles",
+    "title": "Choosing the threshold in extreme value analysis",
+    "section": "Illustration of penultimate effects: normal quantiles",
+    "text": "Illustration of penultimate effects: normal quantiles\n\n\nConditional quantiles above threshold, rescaled. 45\\(^{\\circ}\\) line shows limiting exponential with true conditional (black), fitted GPD with 1M observations (dashed red) and penultimate (green)."
   },
   {
     "objectID": "EVA2025-choosing-threshold.html#visual-diagnostics-on-padova-data",
@@ -81,35 +81,35 @@
     "href": "EVA2025-choosing-threshold.html#caveats",
     "title": "Choosing the threshold in extreme value analysis",
     "section": "Caveats",
-    "text": "Caveats\n\nDifficulty in automating selection (need visual inspection); proposals in Langousis et al. (2016) or Danielsson et al. (2019), but both fall short:\nsample overlap leads to dependence between estimates (pointwise confidence intervals) + multiple testing.\naffected by penultimate effects (shape varies with \\(u\\) in practice).\nplots say nothing about goodness-of-fit!"
+    "text": "Caveats\n\nDifficulty in automating selection (need visual inspection); proposals in Langousis et al. (2016) or Danielsson et al. (2019), but both fall short.\nProblems: sample overlap leads to dependence between estimates (pointwise confidence intervals).\nUnderlying assumptions affected by penultimate effects.\nThe plots say nothing about goodness-of-fit!"
   },
   {
     "objectID": "EVA2025-choosing-threshold.html#stability",
     "href": "EVA2025-choosing-threshold.html#stability",
     "title": "Choosing the threshold in extreme value analysis",
     "section": "Stability?",
-    "text": "Stability?\n\nHill, PORT and random block maxima (Wager 2014) estimates as a function of \\(n_u\\) (sample paths of RBM are \\(\\mathcal{C}^{\\infty}\\))."
+    "text": "Stability?\n\nHill, PORT and random block maxima (Wager 2014) estimates as a function of \\(n_u\\)."
   },
   {
     "objectID": "EVA2025-choosing-threshold.html#generalized-pareto-model-extensions",
     "href": "EVA2025-choosing-threshold.html#generalized-pareto-model-extensions",
     "title": "Choosing the threshold in extreme value analysis",
     "section": "Generalized Pareto model extensions",
-    "text": "Generalized Pareto model extensions\nBuild extended models with additional parameters (with continuity constraints) and test for equality of shape.\nNorthrop and Coleman (2014): piecewise generalized Pareto model coupled with score tests.\n\ntests are dependent because the data are re-used; no control of overall error rate.\nthe power of the test depends on the choice of thresholds and especially on \\(u_K\\)."
+    "text": "Generalized Pareto model extensions\nBuild extended models with additional parameters (with continuity constraints) and test for equality of shape.\nSome model are inspired by penultimate approximations (GPD-like, but with varying shape).\nNorthrop and Coleman (2014): piecewise generalized Pareto model coupled with score tests.\n\ntests are dependent because the data are re-used; no control of overall error rate.\nthe power of the test depends on the choice of thresholds and particularly on the largest threshold \\(u_K\\)."
   },
   {
     "objectID": "EVA2025-choosing-threshold.html#extended-generalized-pareto-models",
     "href": "EVA2025-choosing-threshold.html#extended-generalized-pareto-models",
     "title": "Choosing the threshold in extreme value analysis",
     "section": "Extended generalized Pareto models",
-    "text": "Extended generalized Pareto models\n\nEmbed generalized Pareto \\(F(x;\\sigma,\\xi)\\) in a more flexible model with the same tail properties using a continuous distribution function \\(G_\\kappa\\) on \\([0,1]\\).\nSee the chapter of Naveau (2025) in the Handbook for a recent review.\nThe EGP\\((\\sigma,\\xi, G_\\kappa)\\) distribution function is then \\[\\begin{align*}\n\\Pr(X\\leq x) = G_\\kappa\\{ F(x;\\sigma,\\xi)\\}.                     \\end{align*}\\]\n\nPapastathopoulos and Tawn (2013): models imply the density at the origin is zero.\nGamet and Jalbert (2022) (propose two models, but non-regular asymptotics)."
+    "text": "Extended generalized Pareto models\n\nEmbed generalized Pareto \\(F(x;\\sigma,\\xi)\\) in a more flexible model using a continuous distribution function \\(G_\\kappa\\) on \\([0,1]\\). The EGP\\((\\sigma,\\xi, G_\\kappa)\\) distribution function is then \\[\\begin{align*}\n\\Pr(X\\leq x) = G_\\kappa\\{ F(x;\\sigma,\\xi)\\}.                     \\end{align*}\\] Choose \\(G\\) to keep the tail properties. See the chapter of P. Naveau (2025) for a recent review.\n\nPapastathopoulos and Tawn (2013): models imply the density at the origin is zero.\nGamet and Jalbert (2022) propose two models, but one leads to non-regular asymptotics (restriction on boundary of the parameter space).\nPhilippe Naveau et al. (2016) additional models with two parameters."
   },
   {
     "objectID": "EVA2025-choosing-threshold.html#extended-generalized-pareto-models-1",
     "href": "EVA2025-choosing-threshold.html#extended-generalized-pareto-models-1",
     "title": "Choosing the threshold in extreme value analysis",
     "section": "Extended generalized Pareto models",
-    "text": "Extended generalized Pareto models\nTest for restriction to generalized Pareto sub-model using likelihood ratio tests (profile).\n\nCould allow for a bit more data to be included, at the expense of additional parameters to estimate (potentially more variability).\nSame problems as parameter stability plots (sequential tests, overlapping data)."
+    "text": "Extended generalized Pareto models\nTest for restriction to generalized Pareto sub-model using likelihood ratio tests (profile).\n\nCould allow for a bit more data to be included, at the expense of additional parameters to estimate (and potentially more variability).\nSame problems as parameter stability plots (sequential tests, overlapping data)."
   },
   {
     "objectID": "EVA2025-choosing-threshold.html#splicing-models",
@@ -123,14 +123,14 @@
     "href": "EVA2025-choosing-threshold.html#goodness-of-fit-measures",
     "title": "Choosing the threshold in extreme value analysis",
     "section": "Goodness-of-fit measures",
-    "text": "Goodness-of-fit measures\n\n\nFit a generalized Pareto distribution at each threshold \\(u_1&lt; \\cdots &lt; u_k\\).\nCompute either\n\na suitable statistic which indicates departure from the posulated distribution.\na measure of discrepancy between empirical distribution of exceedances above \\(u\\) and generalized Pareto model (via Kolmogorov–Smirnov, Cramér–von Mises, etc.)\n\nPerform tests sequentially until rejection.\n\nCan also be done on quantile scale (Danielsson et al. 2019)."
+    "text": "Goodness-of-fit measures\n\n\nFit a generalized Pareto distribution at each candidate threshold.\nCompute either\n\na suitable statistic which indicates departure from the posulated distribution.\na measure of discrepancy between empirical distribution of exceedances above \\(u\\) and generalized Pareto model (via Kolmogorov–Smirnov, Cramér–von Mises, etc.)\n\nPerform tests sequentially until rejection, or select the “best” threshold according to the criterion."
   },
   {
     "objectID": "EVA2025-choosing-threshold.html#some-proposals",
     "href": "EVA2025-choosing-threshold.html#some-proposals",
     "title": "Choosing the threshold in extreme value analysis",
     "section": "Some proposals",
-    "text": "Some proposals\n\nIdea dates back to Pickands (1975).\nChoulakian and Stephens (2001), Bader, Yan, and Zhang (2018) (using ForwardStop).\nRecent proposals using \\(L\\)-moment estimators including Kiran and Srinivas (2021), Solari et al. (2017), Silva Lomba and Fraga Alves (2020)."
+    "text": "Some proposals\n\nIdea dates back to Pickands (1975).\nChoulakian and Stephens (2001), Bader, Yan, and Zhang (2018) (using ForwardStop).\nRecent proposals using \\(L\\)-moment estimators including Kiran and Srinivas (2021), Solari et al. (2017), Silva Lomba and Fraga Alves (2020).\n\n\nNote: goodness-of-fit tests null distributions require adjustment for rounded values (estimate null via Monte Carlo)."
   },
   {
     "objectID": "EVA2025-choosing-threshold.html#testing-using-maximum-likelihood-distribution",
@@ -144,7 +144,7 @@
     "href": "EVA2025-choosing-threshold.html#sequential-analysis",
     "title": "Choosing the threshold in extreme value analysis",
     "section": "Sequential analysis",
-    "text": "Sequential analysis\n\nWadsworth (2016) obtains asymptotic joint distribution of MLE from a superposition of Poisson processes.\nBuild independent increments of shape to form a white noise sequence \\(\\xi^*_i=(\\hat{\\xi}_{u_{i+1}}-\\hat{\\xi}_{u_i})/\\{(I^{-1}_{u_{i+1}}-I^{-1}_{u_{i}})_{\\xi,\\xi}^{1/2}\\}\\).\n\nParameter stability plots with simultaneous confidence intervals!\nWhite noise test for \\(\\xi^*_i\\), with alternative \\(\\mathscr{H}_a: \\xi^*_i \\sim \\mathsf{Normal}(\\beta, \\sigma) (i=1, \\ldots, j-1)\\) and \\(\\xi^*_i \\sim \\mathsf{Normal}(0,1)\\) for \\(j, \\ldots, k-1\\) motivated by results on model misspecification (White 1982)."
+    "text": "Sequential analysis\n\nWadsworth (2016) obtains asymptotic joint distribution of MLE from a superposition of Poisson processes.\nBuild independent increments of shape to form a white noise sequence \\(\\xi^*_i=(\\hat{\\xi}_{u_{i+1}}-\\hat{\\xi}_{u_i})/\\{(I^{-1}_{u_{i+1}}-I^{-1}_{u_{i}})_{\\xi,\\xi}^{1/2}\\}\\).\n\nParameter stability plots with simultaneous confidence intervals!\nWhite noise test for \\(\\xi^*_i\\), with alternative hypothesis \\(\\mathscr{H}_a: \\xi^*_i \\sim \\mathsf{Normal}(\\beta, \\sigma) (i=1, \\ldots, j-1)\\) and \\(\\xi^*_i \\sim \\mathsf{Normal}(0,1)\\) for \\(j, \\ldots, k-1\\) motivated by results on model misspecification (White 1982)."
   },
   {
     "objectID": "EVA2025-choosing-threshold.html#comments-on-wadsworth-2016",
@@ -193,35 +193,35 @@
     "href": "EVA2025-choosing-threshold.html#findings",
     "title": "Choosing the threshold in extreme value analysis",
     "section": "Findings",
-    "text": "Findings\n\nNo universally better method.\nGoodness-of-fit tests null distributions require adjustment for rounded values (estimate null via Monte Carlo).\nMany of the automated procedures return the lowest possible threshold.\nUsing Forward stop method to account for multiple testing leads to thresholds that are much lower."
+    "text": "Findings\n\nNo universally better method.\nMany of the automated procedures return the lowest possible threshold.\nUsing Forward stop method to account for multiple testing leads to thresholds that are much lower."
   },
   {
     "objectID": "EVA2025-choosing-threshold.html#more-comments",
     "href": "EVA2025-choosing-threshold.html#more-comments",
     "title": "Choosing the threshold in extreme value analysis",
     "section": "More comments",
-    "text": "More comments\n\nThe oracle method returns value that are on average between the 87% and the 90% quantile.\nMean residual life plots are uniformly scattered.\nVarty et al. (2021)’s metric diagnostic also leads to very small thresholds.\nNorthrop, Attalides, and Jonathan (2017) and Thompson et al. (2009) lead to much less agreement and a greater variability of selected quantile levels for the thresholds. For the cross-validation approach, this is in line with findings of Murphy, Tawn, and Varty (2025).\nWadsworth’s sequential testing performs best with heavy tailed distributions, but otherwise is one of the worst in terms of ranking."
+    "text": "More comments\n\n\nThe oracle method returns average threshold around the 87% and the 90% quantile.\nMean residual life plots are uniformly scattered.\nVarty et al. (2021)’s metric diagnostic also leads to very small thresholds.\nNorthrop, Attalides, and Jonathan (2017) and Thompson et al. (2009) lead to much less agreement and a greater variability of selected quantile levels for the thresholds. For the cross-validation approach, this is in line with findings of Murphy, Tawn, and Varty (2025).\nWadsworth’s sequential testing performs best with heavy tailed distributions, but otherwise is one of the worst in terms of ranking."
   },
   {
     "objectID": "EVA2025-choosing-threshold.html#conclusions-and-future-work",
     "href": "EVA2025-choosing-threshold.html#conclusions-and-future-work",
     "title": "Choosing the threshold in extreme value analysis",
     "section": "Conclusions and future work",
-    "text": "Conclusions and future work\n\nIs the problem well-formulated? There is no “correct” threshold, so are we barking up the wrong tree?\nWeighting with different threshold choices to account for uncertainty (Stein 2023).\nShould we be fitting sub-asymptotic models to much more data?"
+    "text": "Conclusions and future work\nIs the problem well-formulated? There is no “correct” threshold, so are we barking up the wrong tree?\nSome alternatives:\n\nWeighting with different threshold choices to account for uncertainty (Stein 2023).\nShould we be fitting sub-asymptotic models to much more data?"
   },
   {
     "objectID": "EVA2025-choosing-threshold.html#question-period",
     "href": "EVA2025-choosing-threshold.html#question-period",
     "title": "Choosing the threshold in extreme value analysis",
     "section": "Question period",
-    "text": "Question period\n\nThank you for your attention and thanks to the organizers.\nSlides available at\nlbelzile.github.io/EVA2025-choosing-threshold"
+    "text": "Question period\n\nThank you for your attention and thanks to the organizers.\nPreprint coming soon.\nMany numerical methods in R packages mev and tea.\nSlides at lbelzile.github.io/EVA2025-choosing-threshold"
   },
   {
     "objectID": "EVA2025-choosing-threshold.html#semiparametric-methods",
     "href": "EVA2025-choosing-threshold.html#semiparametric-methods",
     "title": "Choosing the threshold in extreme value analysis",
     "section": "Semiparametric methods",
-    "text": "Semiparametric methods\nThe paper also compares 18 different semiparametric methods using Hill-type estimator for heavy-tailed data.\n\nCareful: many numerical implementations don’t specify a minimum sample size!\nPrimer: best methods include Caeiro and Gomes (2016), Gomes, Figueiredo, and Neves (2012), Wager (2014)."
+    "text": "Semiparametric methods\nThe paper also compares 18 different semiparametric methods using Hill-type estimators for heavy-tailed data.\n\nCareful: many numerical implementations don’t specify a minimum sample size!\nPrimer: best methods include Caeiro and Gomes (2016), Gomes, Figueiredo, and Neves (2012), Wager (2014)."
   },
   {
     "objectID": "EVA2025-choosing-threshold.html#dont-use-the-following",
@@ -235,6 +235,6 @@
     "href": "EVA2025-choosing-threshold.html#references",
     "title": "Choosing the threshold in extreme value analysis",
     "section": "References",
-    "text": "References\n\n\n\n\nBader, Brian, Jun Yan, and Xuebin Zhang. 2018. “Automated Threshold Selection for Extreme Value Analysis via Ordered Goodness-of-Fit Tests with Adjustment for False Discovery Rate.” The Annals of Applied Statistics 12 (1): 310–29. https://doi.org/10.1214/17-aoas1092.\n\n\nCaeiro, Frederico, and M. Ivette Gomes. 2016. “Threshold Selection in Extreme Value Analysis.” In Extreme Value Modeling and Risk Analysis: Methods and Applications, edited by Dipak K. Dey and Jun Yan, 69–86. Boca Raton, FL: CRC Press. https://doi.org/10.1201/b19721.\n\n\nChoulakian, V, and M. A Stephens. 2001. “Goodness-of-Fit Tests for the Generalized Pareto Distribution.” Technometrics 43 (4): 478–84. https://doi.org/10.1198/00401700152672573.\n\n\nDanielsson, Jon, Lerby Ergun, Casper G. de Vries, and Laurens de Haan. 2019. “Tail Index Estimation: Quantile-Driven Threshold Selection.” https://doi.org/10.34989/swp-2019-28.\n\n\nDavison, A. C., and R. L. Smith. 1990. “Models for Exceedances over High Thresholds (with Discussion).” Journal of the Royal Statistical Society. Series B. (Methodological) 52 (3): 393–442. https://doi.org/10.1111/j.2517-6161.1990.tb01796.x.\n\n\nDrees, Holger, and Edgar Kaufmann. 1998. “Selecting the Optimal Sample Fraction in Univariate Extreme Value Estimation.” Stochastic Processes and Their Applications 75 (2): 149–72. https://doi.org/10.1016/s0304-4149(98)00017-9.\n\n\nGamet, Philémon, and Jonathan Jalbert. 2022. “A Flexible Extended Generalized Pareto Distribution for Tail Estimation.” Environmetrics 33 (6). https://doi.org/10.1002/env.2744.\n\n\nGomes, M. Ivette, Fernanda Figueiredo, and M. Manuela Neves. 2012. “Adaptive Estimation of Heavy Right Tails: Resampling-Based Methods in Action.” Extremes 15 (4): 463–89. https://doi.org/10.1007/s10687-011-0146-6.\n\n\nGomes, M. Ivette, Lı́gia Henriques-Rodrigues, M. Isabel Fraga Alves, and B. G. Manjunath. 2013. “Adaptive PORT–MVRB Estimation: An Empirical Comparison of Two Heuristic Algorithms.” Journal of Statistical Computation and Simulation 83 (6): 1129–44. https://doi.org/10.1080/00949655.2011.652113.\n\n\nGomes, M. Ivette, and Orlando Oliveira. 2001. “The Bootstrap Methodology in Statistics of Extremes—Choice of the Optimal Sample Fraction.” Extremes 4 (4): 331–58. https://doi.org/10.1023/a:1016592028871.\n\n\nHall, Peter, and A. H. Welsh. 1985. “Adaptive Estimates of Parameters of Regular Variation.” The Annals of Statistics 13 (1): 331–41. https://doi.org/10.1214/aos/1176346596.\n\n\nHu, Yang, and Carl Scarrott. 2018. “evmix: An R Package for Extreme Value Mixture Modeling, Threshold Estimation and Boundary Corrected Kernel Density Estimation.” Journal of Statistical Software 84 (5): 1–27. https://doi.org/10.18637/jss.v084.i05.\n\n\nKiran, K. G., and V. V. Srinivas. 2021. “A Mahalanobis Distance-Based Automatic Threshold Selection Method for Peaks over Threshold Model.” Water Resources Research 57 (e2020WR027534). https://doi.org/10.1029/2020wr027534.\n\n\nLangousis, Andreas, Antonios Mamalakis, Michelangelo Puliga, and Roberto Deidda. 2016. “Threshold Detection for the Generalized Pareto Distribution: Review of Representative Methods and Application to the NOAA NCDC Daily Rainfall Database.” Water Resources Research 52 (4): 2659–81. https://doi.org/https://doi.org/10.1002/2015WR018502.\n\n\nMurphy, Conor, Jonathan A. Tawn, and Zak Varty. 2025. “Automated Threshold Selection and Associated Inference Uncertainty for Univariate Extremes.” Technometrics 67 (2): 215–24. https://doi.org/10.1080/00401706.2024.2421744.\n\n\nNascimento, Fernando Ferraz do, Dani Gamerman, and Hedibert Freitas Lopes. 2012. “A Semiparametric Bayesian Approach to Extreme Value Estimation.” Statistics and Computing 22 (2): 661–75. https://doi.org/10.1007/s11222-011-9270-z.\n\n\nNaveau, P. 2025. “Jointly Modeling Bulk and Tails.” In Handbook of Statistics of Extremes, edited by M. de Carvalho, R. Huser, P. Naveau, and B. J. and Reich, to appear. Boca Raton: Chapman & Hall/CRC.\n\n\nNorthrop, Paul J., Nicolas Attalides, and Philip Jonathan. 2017. “Cross-Validatory Extreme Value Threshold Selection and Uncertainty with Application to Ocean Storm Severity.” Journal of the Royal Statistical Society: Series C (Applied Statistics) 66 (1): 93–120. https://doi.org/https://doi.org/10.1111/rssc.12159.\n\n\nNorthrop, Paul J., and Claire L. Coleman. 2014. “Improved Threshold Diagnostic Plots for Extreme Value Analyses.” Extremes 17 (2): 289–303. https://doi.org/10.1007/s10687-014-0183-z.\n\n\nPapastathopoulos, Ioannis, and Jonathan A. Tawn. 2013. “Extended Generalised Pareto Models for Tail Estimation.” Journal of Statistical Planning and Inference 143 (1): 131–43. https://doi.org/10.1016/j.jspi.2012.07.001.\n\n\nPickands, James. 1975. “Statistical Inference Using Extreme Order Statistics.” The Annals of Statistics 3: 119–31. https://doi.org/10.1214/aos/1176343003.\n\n\nScarrott, Carl, and Anna MacDonald. 2012. “A Review of Extreme-Value Threshold Estimation and Uncertainty Quantification.” REVSTAT – Statistical Journal 10 (1): 33–60. https://doi.org/10.57805/revstat.v10i1.110.\n\n\nSchneider, Laura Fee, Andrea Krajina, and Tatyana Krivobokova. 2021. “Threshold Selection in Univariate Extreme Value Analysis.” Extremes 24 (4): 881–913. https://doi.org/10.1007/s10687-021-00405-7.\n\n\nSilva Lomba, Jessica, and Maria Isabel Fraga Alves. 2020. “\\(L\\)-Moments for Automatic Threshold Selection in Extreme Value Analysis.” Stochastic Environmental Research and Risk Assessment 34 (3): 465–91. https://doi.org/10.1007/s00477-020-01789-x.\n\n\nSmith, Richard L. 1987. “Approximations in Extreme Value Theory.” Department of Statistics; Operations Research, University of North Carolina. https://lbelzile.bitbucket.io/papers/Smith-1987-Approximations_in_extreme_value_theory.pdf.\n\n\nSolari, Sebastián, Marta Egüen, Marı́a José Polo, and Miguel A. Losada. 2017. “Peaks over Threshold (POT): A Methodology for Automatic Threshold Estimation Using Goodness of Fit \\(p\\)-Value.” Water Resources Research 53 (4): 2833–49. https://doi.org/10.1002/2016wr019426.\n\n\nStein, Michael L. 2023. “A Weighted Composite Log-Likelihood Approach to Parametric Estimation of the Extreme Quantiles of a Distribution.” Extremes 26: 469–507. https://doi.org/10.1007/s10687-023-00466-w.\n\n\nThompson, Paul, Yuzhi Cai, Dominic Reeve, and Julian Stander. 2009. “Automated Threshold Selection Methods for Extreme Wave Analysis.” Coastal Engineering 56 (10): 1013–21. https://doi.org/https://doi.org/10.1016/j.coastaleng.2009.06.003.\n\n\nVarty, Zak, Jonathan A. Tawn, Peter M. Atkinson, and Stijn Bierman. 2021. “Inference for Extreme Earthquake Magnitudes Accounting for a Time-Varying Measurement Process.” https://doi.org/10.48550/arXiv.2102.00884.\n\n\nWadsworth, J. L. 2016. “Exploiting Structure of Maximum Likelihood Estimators for Extreme Value Threshold Selection.” Technometrics 58 (1): 116–26. https://doi.org/10.1080/00401706.2014.998345.\n\n\nWager, Stefan. 2014. “Subsampling Extremes: From Block Maxima to Smooth Tail Estimation.” Journal of Multivariate Analysis 130: 335–53. https://doi.org/10.1016/j.jmva.2014.06.010.\n\n\nWhite, Halbert. 1982. “Maximum Likelihood Estimation of Misspecified Models.” Econometrica 50 (1): 1–25. https://doi.org/10.2307/1912526."
+    "text": "References\n\n\n\n\nBader, Brian, Jun Yan, and Xuebin Zhang. 2018. “Automated Threshold Selection for Extreme Value Analysis via Ordered Goodness-of-Fit Tests with Adjustment for False Discovery Rate.” The Annals of Applied Statistics 12 (1): 310–29. https://doi.org/10.1214/17-aoas1092.\n\n\nCaeiro, Frederico, and M. Ivette Gomes. 2016. “Threshold Selection in Extreme Value Analysis.” In Extreme Value Modeling and Risk Analysis: Methods and Applications, edited by Dipak K. Dey and Jun Yan, 69–86. Boca Raton, FL: CRC Press. https://doi.org/10.1201/b19721.\n\n\nChoulakian, V, and M. A Stephens. 2001. “Goodness-of-Fit Tests for the Generalized Pareto Distribution.” Technometrics 43 (4): 478–84. https://doi.org/10.1198/00401700152672573.\n\n\nDanielsson, Jon, Lerby Ergun, Casper G. de Vries, and Laurens de Haan. 2019. “Tail Index Estimation: Quantile-Driven Threshold Selection.” https://doi.org/10.34989/swp-2019-28.\n\n\nDavison, A. C., and R. L. Smith. 1990. “Models for Exceedances over High Thresholds (with Discussion).” Journal of the Royal Statistical Society. Series B. (Methodological) 52 (3): 393–442. https://doi.org/10.1111/j.2517-6161.1990.tb01796.x.\n\n\nDrees, Holger, and Edgar Kaufmann. 1998. “Selecting the Optimal Sample Fraction in Univariate Extreme Value Estimation.” Stochastic Processes and Their Applications 75 (2): 149–72. https://doi.org/10.1016/s0304-4149(98)00017-9.\n\n\nGamet, Philémon, and Jonathan Jalbert. 2022. “A Flexible Extended Generalized Pareto Distribution for Tail Estimation.” Environmetrics 33 (6). https://doi.org/10.1002/env.2744.\n\n\nGomes, M. Ivette, Fernanda Figueiredo, and M. Manuela Neves. 2012. “Adaptive Estimation of Heavy Right Tails: Resampling-Based Methods in Action.” Extremes 15 (4): 463–89. https://doi.org/10.1007/s10687-011-0146-6.\n\n\nGomes, M. Ivette, Lı́gia Henriques-Rodrigues, M. Isabel Fraga Alves, and B. G. Manjunath. 2013. “Adaptive PORT–MVRB Estimation: An Empirical Comparison of Two Heuristic Algorithms.” Journal of Statistical Computation and Simulation 83 (6): 1129–44. https://doi.org/10.1080/00949655.2011.652113.\n\n\nGomes, M. Ivette, and Orlando Oliveira. 2001. “The Bootstrap Methodology in Statistics of Extremes—Choice of the Optimal Sample Fraction.” Extremes 4 (4): 331–58. https://doi.org/10.1023/a:1016592028871.\n\n\nHall, Peter, and A. H. Welsh. 1985. “Adaptive Estimates of Parameters of Regular Variation.” The Annals of Statistics 13 (1): 331–41. https://doi.org/10.1214/aos/1176346596.\n\n\nHu, Yang, and Carl Scarrott. 2018. “evmix: An R Package for Extreme Value Mixture Modeling, Threshold Estimation and Boundary Corrected Kernel Density Estimation.” Journal of Statistical Software 84 (5): 1–27. https://doi.org/10.18637/jss.v084.i05.\n\n\nKiran, K. G., and V. V. Srinivas. 2021. “A Mahalanobis Distance-Based Automatic Threshold Selection Method for Peaks over Threshold Model.” Water Resources Research 57 (e2020WR027534). https://doi.org/10.1029/2020wr027534.\n\n\nLangousis, Andreas, Antonios Mamalakis, Michelangelo Puliga, and Roberto Deidda. 2016. “Threshold Detection for the Generalized Pareto Distribution: Review of Representative Methods and Application to the NOAA NCDC Daily Rainfall Database.” Water Resources Research 52 (4): 2659–81. https://doi.org/https://doi.org/10.1002/2015WR018502.\n\n\nMurphy, Conor, Jonathan A. Tawn, and Zak Varty. 2025. “Automated Threshold Selection and Associated Inference Uncertainty for Univariate Extremes.” Technometrics 67 (2): 215–24. https://doi.org/10.1080/00401706.2024.2421744.\n\n\nNascimento, Fernando Ferraz do, Dani Gamerman, and Hedibert Freitas Lopes. 2012. “A Semiparametric Bayesian Approach to Extreme Value Estimation.” Statistics and Computing 22 (2): 661–75. https://doi.org/10.1007/s11222-011-9270-z.\n\n\nNaveau, P. 2025. “Jointly Modeling Bulk and Tails.” In Handbook of Statistics of Extremes, edited by M. de Carvalho, R. Huser, P. Naveau, and B. J. and Reich, to appear. Boca Raton: Chapman & Hall/CRC.\n\n\nNaveau, Philippe, Raphael Huser, Pierre Ribereau, and Alexis Hannart. 2016. “Modeling Jointly Low, Moderate, and Heavy Rainfall Intensities Without a Threshold Selection.” Water Resources Research 52 (4): 2753–69. https://doi.org/https://doi.org/10.1002/2015WR018552.\n\n\nNorthrop, Paul J., Nicolas Attalides, and Philip Jonathan. 2017. “Cross-Validatory Extreme Value Threshold Selection and Uncertainty with Application to Ocean Storm Severity.” Journal of the Royal Statistical Society: Series C (Applied Statistics) 66 (1): 93–120. https://doi.org/https://doi.org/10.1111/rssc.12159.\n\n\nNorthrop, Paul J., and Claire L. Coleman. 2014. “Improved Threshold Diagnostic Plots for Extreme Value Analyses.” Extremes 17 (2): 289–303. https://doi.org/10.1007/s10687-014-0183-z.\n\n\nPapastathopoulos, Ioannis, and Jonathan A. Tawn. 2013. “Extended Generalised Pareto Models for Tail Estimation.” Journal of Statistical Planning and Inference 143 (1): 131–43. https://doi.org/10.1016/j.jspi.2012.07.001.\n\n\nPickands, James. 1975. “Statistical Inference Using Extreme Order Statistics.” The Annals of Statistics 3: 119–31. https://doi.org/10.1214/aos/1176343003.\n\n\nScarrott, Carl, and Anna MacDonald. 2012. “A Review of Extreme-Value Threshold Estimation and Uncertainty Quantification.” REVSTAT – Statistical Journal 10 (1): 33–60. https://doi.org/10.57805/revstat.v10i1.110.\n\n\nSchneider, Laura Fee, Andrea Krajina, and Tatyana Krivobokova. 2021. “Threshold Selection in Univariate Extreme Value Analysis.” Extremes 24 (4): 881–913. https://doi.org/10.1007/s10687-021-00405-7.\n\n\nSilva Lomba, Jessica, and Maria Isabel Fraga Alves. 2020. “\\(L\\)-Moments for Automatic Threshold Selection in Extreme Value Analysis.” Stochastic Environmental Research and Risk Assessment 34 (3): 465–91. https://doi.org/10.1007/s00477-020-01789-x.\n\n\nSmith, Richard L. 1987. “Approximations in Extreme Value Theory.” Department of Statistics; Operations Research, University of North Carolina. https://lbelzile.bitbucket.io/papers/Smith-1987-Approximations_in_extreme_value_theory.pdf.\n\n\nSolari, Sebastián, Marta Egüen, Marı́a José Polo, and Miguel A. Losada. 2017. “Peaks over Threshold (POT): A Methodology for Automatic Threshold Estimation Using Goodness of Fit \\(p\\)-Value.” Water Resources Research 53 (4): 2833–49. https://doi.org/10.1002/2016wr019426.\n\n\nStein, Michael L. 2023. “A Weighted Composite Log-Likelihood Approach to Parametric Estimation of the Extreme Quantiles of a Distribution.” Extremes 26: 469–507. https://doi.org/10.1007/s10687-023-00466-w.\n\n\nThompson, Paul, Yuzhi Cai, Dominic Reeve, and Julian Stander. 2009. “Automated Threshold Selection Methods for Extreme Wave Analysis.” Coastal Engineering 56 (10): 1013–21. https://doi.org/https://doi.org/10.1016/j.coastaleng.2009.06.003.\n\n\nVarty, Zak, Jonathan A. Tawn, Peter M. Atkinson, and Stijn Bierman. 2021. “Inference for Extreme Earthquake Magnitudes Accounting for a Time-Varying Measurement Process.” https://doi.org/10.48550/arXiv.2102.00884.\n\n\nWadsworth, J. L. 2016. “Exploiting Structure of Maximum Likelihood Estimators for Extreme Value Threshold Selection.” Technometrics 58 (1): 116–26. https://doi.org/10.1080/00401706.2014.998345.\n\n\nWager, Stefan. 2014. “Subsampling Extremes: From Block Maxima to Smooth Tail Estimation.” Journal of Multivariate Analysis 130: 335–53. https://doi.org/10.1016/j.jmva.2014.06.010.\n\n\nWhite, Halbert. 1982. “Maximum Likelihood Estimation of Misspecified Models.” Econometrica 50 (1): 1–25. https://doi.org/10.2307/1912526."
   }
 ]
