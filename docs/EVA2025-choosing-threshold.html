@@ -170,7 +170,7 @@ Léo Belzile, HEC Montréal (joint work with Sonia Alouini and Anthony Davison)
 </ul></li>
 <li>we fit the limiting generalized Pareto distribution with scale <span class="math inline">\(\sigma_u\)</span> and shape <span class="math inline">\(\xi\)</span> to exceedances <span class="math inline">\(X-u\)</span> over threshold <span class="math inline">\(u\)</span>.
 <ul>
-<li>if the shape <span class="math inline">\(\xi&gt;0\)</span>, we can use Hill’s estimator</li>
+<li>if the shape <span class="math inline">\(\xi&gt;0\)</span>, we can use Hill’s estimator.</li>
 </ul></li>
 <li>we use the resulting model for extrapolation beyond <span class="math inline">\(u\)</span>.</li>
 </ol>
@@ -179,14 +179,14 @@ Léo Belzile, HEC Montréal (joint work with Sonia Alouini and Anthony Davison)
 <h2>Threshold selection</h2>
 <p>Bias and variance trade-off:</p>
 <ul>
-<li>taking <span class="math inline">\(u\)</span> too high will mean that the number of exceedances <span class="math inline">\(n_u\)</span> is small (increase uncertainty)</li>
+<li>taking <span class="math inline">\(u\)</span> too high will mean that the number of exceedances <span class="math inline">\(n_u\)</span> is small (high uncertainty).</li>
 <li>taking <span class="math inline">\(u\)</span> too low increases the risk of biased extrapolation.</li>
 </ul>
 <p>Since the limit holds as <span class="math inline">\(u\)</span> increases to the upper endpoint of the support of <span class="math inline">\(X\)</span>, we must use a so-called intermediate sequence <span class="math inline">\(n_u/n\to 0\)</span> as <span class="math inline">\(n_u\to\infty\)</span> for consistency.</p>
 </section>
 <section id="limiting-distribution-and-threshold-stability" class="slide level2">
 <h2>Limiting distribution and threshold stability</h2>
-<p>Limiting distribution of threshold exceedances is generalized Pareto. <strong>If</strong> the limit was exact and <span class="math inline">\(X-u\sim \mathsf{GPD}(\sigma_u,\xi)\)</span></p>
+<p>Limiting distribution of threshold exceedances is generalized Pareto. <strong>If</strong> the limit was exact and <span class="math inline">\(X-u\sim \mathsf{GPD}(\sigma_u,\xi)\)</span>:</p>
 <ul>
 <li>For a higher threshold <span class="math inline">\(v&gt;u\)</span>, then <span class="math display">\[\begin{align*}
 X-v \mid X&gt;v \sim \mathsf{GPD}\{\sigma_v=\sigma_u+ \xi(v-u), \xi\}.
@@ -238,6 +238,7 @@ This extends the Rényi representation for exponential data and  provides a like
 <li>The most comprehensive reviews are <span class="citation" data-cites="Scarrott.MacDonald:2012">Scarrott and MacDonald (<a href="#/references" role="doc-biblioref" onclick="">2012</a>)</span>, <span class="citation" data-cites="Caeiro.Gomes:2016">Caeiro and Gomes (<a href="#/references" role="doc-biblioref" onclick="">2016</a>)</span> and <span class="citation" data-cites="Langousis:2016">Langousis et al. (<a href="#/references" role="doc-biblioref" onclick="">2016</a>)</span>.</li>
 <li>Selective numerical comparisons in <span class="citation" data-cites="Gomes.Oliveira:2001">Gomes and Oliveira (<a href="#/references" role="doc-biblioref" onclick="">2001</a>)</span>, <span class="citation" data-cites="Murphy.Tawn.Varty:2024">Murphy, Tawn, and Varty (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span> and <span class="citation" data-cites="Schneider:2021">Schneider, Krajina, and Krivobokova (<a href="#/references" role="doc-biblioref" onclick="">2021</a>)</span>, among others.</li>
 </ul>
+<p>We compare about 40 different methods numerically.</p>
 </section>
 <section id="some-problems-with-most-methods" class="slide level2">
 <h2>Some problems with (most methods)</h2>
@@ -279,7 +280,7 @@ This extends the Rényi representation for exponential data and  provides a like
 </section>
 <section id="penultimate-effects" class="slide level2">
 <h2>Penultimate effects</h2>
-<p><span class="citation" data-cites="smith_1987">Smith (<a href="#/references" role="doc-biblioref" onclick="">1987</a>)</span> show that a better approximation is obtained by letting the shape vary with <span class="math inline">\(u\)</span>, with <span class="math inline">\(\xi_t = r'(u),\)</span> where <span class="math display">\[r(t) = \{1-F(t)\}/f(t)\]</span> is the reciprocal hazard function.</p>
+<p>Rather than using <span class="math inline">\(\mathsf{GPD}(a_u, \xi)\)</span> above <span class="math inline">\(u\)</span> <span class="citation" data-cites="smith_1987">Smith (<a href="#/references" role="doc-biblioref" onclick="">1987</a>)</span> show that a better approximation is obtained by letting the shape vary with <span class="math inline">\(u\)</span>, taking <span class="math inline">\(\mathsf{GPD}(a_u, \xi_u)\)</span> with <span class="math inline">\(\xi_u = r'(u),\)</span> where <span class="math display">\[r(t) = \{1-F(t)\}/f(t)\]</span> is the reciprocal hazard function.</p>
 <div style="font-size: 60%;">
 <p><code>mev</code> package: <code>smith.penult(family = "norm", method = "pot", qu = c(0.9, 0.95, 0.99))</code></p>
 </div>
@@ -292,17 +293,17 @@ This extends the Rényi representation for exponential data and  provides a like
 <h2>Illustration of penultimate effects: normal quantiles</h2>
 
 <img data-src="figures/Fig1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><div style="font-size: 60%;">
-<p>Conditional quantiles above threshold, rescaled. 45<span class="math inline">\(^{\circ}\)</span> line shows limiting exponential with true conditional (black), fitted GPD with 1M observations (dashed red) and penultimate (green).</p>
+<p>Conditional quantiles above threshold, rescaled. 45<span class="math inline">\(^{\circ}\)</span> line shows limiting exponential with true conditional quantile (black), fitted GPD with 1M observations (dashed red) and penultimate (green).</p>
 </div>
 </section>
-<section id="visual-diagnostics-on-padova-data" class="slide level2 smaller">
-<h2>Visual diagnostics on Padova data</h2>
+<section id="graphical-diagnostics-on-padova-data" class="slide level2 smaller">
+<h2>Graphical diagnostics on Padova data</h2>
 <p>Mean residual life <span class="citation" data-cites="Davison.Smith:1990">(<a href="#/references" role="doc-biblioref" onclick="">Davison and Smith 1990</a>)</span>, parameter stability and Hill plots.</p>
 
 <img data-src="figures/Fig_padova_visualdiag.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><p>Which threshold would you choose?</p>
 </section>
-<section id="caveats" class="slide level2">
-<h2>Caveats</h2>
+<section id="caveats-of-graphical-diagnostics" class="slide level2">
+<h2>Caveats of graphical diagnostics</h2>
 <ul>
 <li>Difficulty in automating selection (need visual inspection); proposals in <span class="citation" data-cites="Langousis:2016">Langousis et al. (<a href="#/references" role="doc-biblioref" onclick="">2016</a>)</span> or <span class="citation" data-cites="Danielsson:2019">Danielsson et al. (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span>, but both fall short.</li>
 <li>Problems: pointwise confidence intervals.</li>
@@ -317,23 +318,25 @@ This extends the Rényi representation for exponential data and  provides a like
 </section>
 <section id="generalized-pareto-model-extensions" class="slide level2">
 <h2>Generalized Pareto model extensions</h2>
+<div style="font-size: 90%;">
 <p>Build extended models with additional parameters (with continuity constraints) and test for equality of shape.</p>
-<p>Some model are inspired by penultimate approximations (GPD-like, but with varying shape).</p>
+<p>Some model are inspired by penultimate approximations (GPD-like, but with different shapes over each interval defined by <span class="math inline">\(\boldsymbol{u}\)</span>).</p>
 <p><span class="citation" data-cites="Northrop.Coleman:2014">Northrop and Coleman (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span>: piecewise generalized Pareto model coupled with score tests.</p>
 <ul>
 <li>tests are dependent because the data are re-used; no control of overall error rate.</li>
 <li>the power of the test depends on the choice of thresholds and particularly on the largest threshold <span class="math inline">\(u_K\)</span>.</li>
 </ul>
+</div>
 </section>
 <section id="extended-generalized-pareto-models" class="slide level2">
 <h2>Extended generalized Pareto models</h2>
 <div style="font-size: 80%;">
 <p>Embed generalized Pareto <span class="math inline">\(F(x;\sigma,\xi)\)</span> in a more flexible model using a continuous distribution function <span class="math inline">\(G_\kappa\)</span> on <span class="math inline">\([0,1]\)</span>. The EGP<span class="math inline">\((\sigma,\xi, G_\kappa)\)</span> distribution function is then <span class="math display">\[\begin{align*}
-\Pr(X\leq x) = G_\kappa\{ F(x;\sigma,\xi)\}.                     \end{align*}\]</span> Choose <span class="math inline">\(G\)</span> to keep the tail properties. See the chapter of <span class="citation" data-cites="Naveau:2025">P. Naveau (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span> for a recent review.</p>
+\Pr(X\leq x) = G_\kappa\{ F(x;\sigma,\xi)\}.                     \end{align*}\]</span> Choose <span class="math inline">\(G\)</span> to keep the tail properties. See the chapter of <span class="citation" data-cites="Naveau:2025">Naveau (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span> for a recent review.</p>
 <ul>
 <li><span class="citation" data-cites="Papastathopoulos.Tawn:2013">Papastathopoulos and Tawn (<a href="#/references" role="doc-biblioref" onclick="">2013</a>)</span>: models imply the density at the origin is zero.</li>
 <li><span class="citation" data-cites="Gamet.Jalbert:2022">Gamet and Jalbert (<a href="#/references" role="doc-biblioref" onclick="">2022</a>)</span> propose two models, but one leads to non-regular asymptotics (restriction on boundary of the parameter space).</li>
-<li><span class="citation" data-cites="Naveau:2016">Philippe Naveau et al. (<a href="#/references" role="doc-biblioref" onclick="">2016</a>)</span> additional models with two parameters.</li>
+<li><span class="citation" data-cites="Naveau:2016">Naveau et al. (<a href="#/references" role="doc-biblioref" onclick="">2016</a>)</span> additional models with two parameters.</li>
 </ul>
 </div>
 </section>
@@ -571,14 +574,15 @@ Under null hypothesis, $p$-values should be around 0.5.
 <li>Primer: best methods include <span class="citation" data-cites="Caeiro.Gomes:2016">Caeiro and Gomes (<a href="#/references" role="doc-biblioref" onclick="">2016</a>)</span>, <span class="citation" data-cites="Gomes.Figueiredo.Neves:2012">Gomes, Figueiredo, and Neves (<a href="#/references" role="doc-biblioref" onclick="">2012</a>)</span>, <span class="citation" data-cites="Wager:2014">Wager (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span>.</li>
 </ul>
 </section>
-<section id="dont-use-the-following" class="slide level2 smaller">
+<section id="dont-use-the-following" class="slide level2">
 <h2>Don’t use the following</h2>
+<div style="font-size: 80%;">
 <ul>
 <li>Methods based on minimization of the asymptotic mean squared error can break down catastrophically for particular data sets.</li>
 <li>Methods by <span class="citation" data-cites="Gomes:2013">Gomes et al. (<a href="#/references" role="doc-biblioref" onclick="">2013</a>)</span> and <span class="citation" data-cites="Hall.Welsh:1985">Hall and Welsh (<a href="#/references" role="doc-biblioref" onclick="">1985</a>)</span> behave erratically with small shape parameters: these procedures lead to strongly biased shape parameter estimates. This is due to them keeping more than 15% of the data for inference.</li>
-<li><span class="citation" data-cites="Drees.Kaufmann:1998">Drees and Kaufmann (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span> bias-reduction method leads to large width of confidence intervals (unwanted variability), an</li>
-<li>Many other methods are extremely variable.</li>
+<li><span class="citation" data-cites="Drees.Kaufmann:1998">Drees and Kaufmann (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span> bias-reduction method leads to large width of confidence intervals (unwanted variability). Many other methods are also extremely variable.</li>
 </ul>
+</div>
 </section>
 <section id="testing-using-maximum-likelihood-distribution" class="slide level2">
 <h2>Testing using maximum likelihood distribution</h2>
@@ -639,7 +643,7 @@ Murphy, Conor, Jonathan A. Tawn, and Zak Varty. 2025. <span>“Automated Thresho
 Nascimento, Fernando Ferraz do, Dani Gamerman, and Hedibert Freitas Lopes. 2012. <span>“A Semiparametric <span>B</span>ayesian Approach to Extreme Value Estimation.”</span> <em>Statistics and Computing</em> 22 (2): 661–75. <a href="https://doi.org/10.1007/s11222-011-9270-z">https://doi.org/10.1007/s11222-011-9270-z</a>.
 </div>
 <div id="ref-Naveau:2025" class="csl-entry" role="listitem">
-Naveau, P. 2025. <span>“Jointly Modeling Bulk and Tails.”</span> In <em>Handbook of Statistics of Extremes</em>, edited by M. de Carvalho, R. Huser, P. Naveau, and B. J. and Reich, to appear. Boca Raton: Chapman &amp; Hall/CRC.
+Naveau, Philippe. 2025. <span>“Jointly Modeling Bulk and Tails.”</span> In <em>Handbook of Statistics of Extremes</em>, edited by M. de Carvalho, R. Huser, P. Naveau, and B. J. and Reich, to appear. Boca Raton: Chapman &amp; Hall/CRC.
 </div>
 <div id="ref-Naveau:2016" class="csl-entry" role="listitem">
 Naveau, Philippe, Raphael Huser, Pierre Ribereau, and Alexis Hannart. 2016. <span>“Modeling Jointly Low, Moderate, and Heavy Rainfall Intensities Without a Threshold Selection.”</span> <em>Water Resources Research</em> 52 (4): 2753–69. https://doi.org/<a href="https://doi.org/10.1002/2015WR018552">https://doi.org/10.1002/2015WR018552</a>.
