@@ -180,18 +180,18 @@ Léo Belzile, HEC Montréal (joint work with Sonia Alouini and Anthony Davison)
 <p>Bias and variance trade-off:</p>
 <ul>
 <li>taking <span class="math inline">\(u\)</span> too high will mean that the number of exceedances <span class="math inline">\(n_u\)</span> is small (increase uncertainty)</li>
-<li>taking <span class="math inline">\(u\)</span> too low will increase <span class="math inline">\(n_u\)</span>, at the risk of a biased extrapolation.</li>
+<li>taking <span class="math inline">\(u\)</span> too low increases the risk of biased extrapolation.</li>
 </ul>
-<p>Since the limit holds as <span class="math inline">\(u\)</span> increases to the upper support point of <span class="math inline">\(X\)</span>, we must use a so-called intermediate sequence <span class="math inline">\(n_u/n\to 0\)</span> as <span class="math inline">\(n_u\to\infty\)</span> for consistency.</p>
+<p>Since the limit holds as <span class="math inline">\(u\)</span> increases to the upper endpoint of the support of <span class="math inline">\(X\)</span>, we must use a so-called intermediate sequence <span class="math inline">\(n_u/n\to 0\)</span> as <span class="math inline">\(n_u\to\infty\)</span> for consistency.</p>
 </section>
 <section id="limiting-distribution-and-threshold-stability" class="slide level2">
 <h2>Limiting distribution and threshold stability</h2>
+<p>Limiting distribution of threshold exceedances is generalized Pareto. <strong>If</strong> the limit was exact and <span class="math inline">\(X-u\sim \mathsf{GPD}(\sigma_u,\xi)\)</span></p>
 <ul>
-<li><p>Limiting distribution of threshold exceedances is generalized Pareto. <strong>If</strong> the limit was exact and <span class="math inline">\(X-u\sim \mathsf{GPD}(\sigma_u,\xi)\)</span></p></li>
-<li><p>For higher threshold <span class="math inline">\(v&gt;u\)</span>, then <span class="math display">\[\begin{align*}
+<li>For a higher threshold <span class="math inline">\(v&gt;u\)</span>, then <span class="math display">\[\begin{align*}
 X-v \mid X&gt;v \sim \mathsf{GPD}\{\sigma_v=\sigma_u+ \xi(v-u), \xi\}.
-\end{align*}\]</span></p></li>
-<li><p>Provided <span class="math inline">\(\xi&gt;-1\)</span>, the expected value of exceedances is <span class="math display">\[\mathsf{E}(X-u) = \sigma_u/(1+\xi).\]</span></p></li>
+\end{align*}\]</span></li>
+<li>Provided <span class="math inline">\(\xi&gt;-1\)</span>, the expected value of exceedances is <span class="math display">\[\mathsf{E}(X-u) = \sigma_u/(1+\xi).\]</span></li>
 </ul>
 <!--
 
@@ -231,8 +231,8 @@ This extends the Rényi representation for exponential data and  provides a like
 
 -->
 </section>
-<section id="literature-review" class="slide level2">
-<h2>Literature review</h2>
+<section id="why-another-survey-paper" class="slide level2">
+<h2>Why another survey paper?</h2>
 <p>There are earlier reviews of the topic, but the literature keeps increasing…</p>
 <ul>
 <li>The most comprehensive reviews are <span class="citation" data-cites="Scarrott.MacDonald:2012">Scarrott and MacDonald (<a href="#/references" role="doc-biblioref" onclick="">2012</a>)</span>, <span class="citation" data-cites="Caeiro.Gomes:2016">Caeiro and Gomes (<a href="#/references" role="doc-biblioref" onclick="">2016</a>)</span> and <span class="citation" data-cites="Langousis:2016">Langousis et al. (<a href="#/references" role="doc-biblioref" onclick="">2016</a>)</span>.</li>
@@ -242,10 +242,12 @@ This extends the Rényi representation for exponential data and  provides a like
 <section id="some-problems-with-most-methods" class="slide level2">
 <h2>Some problems with (most methods)</h2>
 <div style="font-size: 80%;">
-<p>Consider selecting a threshold among candidates <span class="math inline">\(u_1 &lt; \cdots &lt; u_k.\)</span></p>
+<p>Conditional model: only consider data above the threshold.</p>
+<p>Consider candidate thresholds <span class="math inline">\(u_1 &lt; \cdots &lt; u_K\)</span>.</p>
+<p>Resulting problems:</p>
 <ul>
-<li>Sample overlap: data above different thresholds are overlapping (so dependence between estimates or test statistics and <span class="math inline">\(P\)</span>-values).</li>
-<li>Non-nested models: we only model exceedances above <span class="math inline">\(u_j\)</span> (so most models are not nested).</li>
+<li>Dependence between estimates, test statistics, <span class="math inline">\(P\)</span>-values due to sample overlap.</li>
+<li>Non-nested models.</li>
 <li>Multiple testing problem.</li>
 <li>Potential for automation.</li>
 <li>Non-stationarity (dependence on covariate, change over time).</li>
@@ -254,12 +256,12 @@ This extends the Rényi representation for exponential data and  provides a like
 </section>
 <section id="objective" class="slide level2">
 <h2>Objective</h2>
-<p>We provide an extensive review of threshold selection mechanisms for peak over threshold analysis, including</p>
+<p>We provide an extensive review of threshold selection mechanisms for peaks over threshold analysis, including</p>
 <ul>
-<li>semiparametric methods based on Hill’s estimator (not covered in this presentation for the sake of time),</li>
 <li>visual diagnostics,</li>
-<li>goodness-of-fit tests,</li>
 <li>extended generalized Pareto models,</li>
+<li>goodness-of-fit tests,</li>
+<li>semiparametric methods based on Hill’s estimator (not covered in this presentation due to time constraints),</li>
 <li>etc.</li>
 </ul>
 </section>
@@ -279,7 +281,7 @@ This extends the Rényi representation for exponential data and  provides a like
 <h2>Penultimate effects</h2>
 <p><span class="citation" data-cites="smith_1987">Smith (<a href="#/references" role="doc-biblioref" onclick="">1987</a>)</span> show that a better approximation is obtained by letting the shape vary with <span class="math inline">\(u\)</span>, with <span class="math inline">\(\xi_t = r'(u),\)</span> where <span class="math display">\[r(t) = \{1-F(t)\}/f(t)\]</span> is the reciprocal hazard function.</p>
 <div style="font-size: 60%;">
-<p><code>mev</code> package: <code>smith.penult(family = "norm", method = "pot", qu = c(0.9, 0.95, 0.99))</code>.</p>
+<p><code>mev</code> package: <code>smith.penult(family = "norm", method = "pot", qu = c(0.9, 0.95, 0.99))</code></p>
 </div>
 </section>
 <section id="illustration-of-penultimate-effects-normal-example" class="slide level2 smaller">
@@ -303,7 +305,7 @@ This extends the Rényi representation for exponential data and  provides a like
 <h2>Caveats</h2>
 <ul>
 <li>Difficulty in automating selection (need visual inspection); proposals in <span class="citation" data-cites="Langousis:2016">Langousis et al. (<a href="#/references" role="doc-biblioref" onclick="">2016</a>)</span> or <span class="citation" data-cites="Danielsson:2019">Danielsson et al. (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span>, but both fall short.</li>
-<li>Problems: sample overlap leads to dependence between estimates (pointwise confidence intervals).</li>
+<li>Problems: pointwise confidence intervals.</li>
 <li>Underlying assumptions affected by penultimate effects.</li>
 <li>The plots say nothing about goodness-of-fit!</li>
 </ul>
@@ -345,12 +347,16 @@ This extends the Rényi representation for exponential data and  provides a like
 </section>
 <section id="splicing-models" class="slide level2">
 <h2>Splicing models</h2>
-<p>Glue a distribution for the bulk with one for the tail using a mixture of disjoint components below <span class="math inline">\(u\)</span> (bulk) and above <span class="math inline">\(u\)</span> (generalized Pareto). See <span class="citation" data-cites="Scarrott.MacDonald:2012">Scarrott and MacDonald (<a href="#/references" role="doc-biblioref" onclick="">2012</a>)</span> and <span class="citation" data-cites="Hu.Scarrott:2018">Hu and Scarrott (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span>.</p>
+<div style="font-size: 80%;">
+<p>Glue a distribution for the bulk with one for the tail using a mixture of disjoint components below <span class="math inline">\(u\)</span> (bulk) and above <span class="math inline">\(u\)</span> (generalized Pareto).</p>
+<p>See <span class="citation" data-cites="Scarrott.MacDonald:2012">Scarrott and MacDonald (<a href="#/references" role="doc-biblioref" onclick="">2012</a>)</span> and <span class="citation" data-cites="Hu.Scarrott:2018">Hu and Scarrott (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span> for reviews.</p>
+<p>If we build <span class="math inline">\(u\)</span> as a parameter of the model, then</p>
 <ul>
-<li>Leads to sample contamination, fit may be driven by bulk.</li>
-<li>profile likelihood for threshold <span class="math inline">\(u\)</span> is non-monotone.</li>
-<li>Bayesian version with random threshold <span class="citation" data-cites="doNascimento.Gamerman.Lopes:2012">(<a href="#/references" role="doc-biblioref" onclick="">Nascimento, Gamerman, and Lopes 2012</a>)</span> provides threshold selection uncertainty.</li>
+<li>it leads to sample contamination, as fit of the GPD may be driven by bulk.</li>
+<li>the profile likelihood for threshold <span class="math inline">\(u\)</span> is non-monotone.</li>
+<li>Bayesian version with random threshold <span class="citation" data-cites="doNascimento.Gamerman.Lopes:2012">(<a href="#/references" role="doc-biblioref" onclick="">Nascimento, Gamerman, and Lopes 2012</a>)</span> accounts for uncertainty.</li>
 </ul>
+</div>
 </section>
 <section id="goodness-of-fit-measures" class="slide level2">
 <h2>Goodness-of-fit measures</h2>
@@ -372,15 +378,21 @@ This extends the Rényi representation for exponential data and  provides a like
 <li>Idea dates back to <span class="citation" data-cites="Pickands:1975">Pickands (<a href="#/references" role="doc-biblioref" onclick="">1975</a>)</span>.</li>
 <li><span class="citation" data-cites="Choulakian.Stephens:2001">Choulakian and Stephens (<a href="#/references" role="doc-biblioref" onclick="">2001</a>)</span>, <span class="citation" data-cites="Bader.Yan.Zhang:2018">Bader, Yan, and Zhang (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span> (using ForwardStop).</li>
 <li>Recent proposals using <span class="math inline">\(L\)</span>-moment estimators including <span class="citation" data-cites="Kiran.Srinivas:2021">Kiran and Srinivas (<a href="#/references" role="doc-biblioref" onclick="">2021</a>)</span>, <span class="citation" data-cites="Solari:2017">Solari et al. (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span>, <span class="citation" data-cites="SilvaLomba.FragaAlves:2020">Silva Lomba and Fraga Alves (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span>.</li>
+<li>Some <em>ad hoc</em> proposals <span class="citation" data-cites="Thompson:2009">(<a href="#/references" role="doc-biblioref" onclick="">Thompson et al. 2009</a>)</span> work well in practice.</li>
 </ul>
 <div style="font-size: 70%;">
 <p>Note: goodness-of-fit tests null distributions require adjustment for rounded values (estimate null via Monte Carlo).</p>
 </div>
-</section>
-<section id="testing-using-maximum-likelihood-distribution" class="slide level2">
-<h2>Testing using maximum likelihood distribution</h2>
-<p><span class="citation" data-cites="Thompson:2009">Thompson et al. (<a href="#/references" role="doc-biblioref" onclick="">2009</a>)</span> propose using constant values <span class="math display">\[\tau_j = \widehat{\sigma}_j - \widehat{\xi}_j u_j\]</span> and performing Pearson’s test of normality for the differences <span class="math inline">\(\tau_{j+1} - \tau_{j}\)</span> (<span class="math inline">\(j=1, \ldots, k-1\)</span>), stopping whenever the hypothesis is rejected at level <span class="math inline">\(\alpha = 0.2\)</span>.</p>
-<p><em>Ad hoc</em> proposal… but works well in simulations.</p>
+<!--
+
+## Testing using maximum likelihood distribution
+
+
+@Thompson:2009 propose using constant values $$\tau_j = \widehat{\sigma}_j - \widehat{\xi}_j u_j$$  and performing Pearson's test of normality for the differences $\tau_{j+1} - \tau_{j}$ ($j=1, \ldots, k-1$), stopping whenever the hypothesis is rejected at level $\alpha = 0.2$.
+
+*Ad hoc* proposal... but works well in simulations.
+
+-->
 </section>
 <section id="sequential-analysis" class="slide level2">
 <h2>Sequential analysis</h2>
@@ -440,21 +452,23 @@ Under null hypothesis, $p$-values should be around 0.5.
 
 -->
 </section>
-<section id="predictive-distribution" class="slide level2 smaller">
+<section id="predictive-distribution" class="slide level2">
 <h2>Predictive distribution</h2>
+<div style="font-size: 85%;">
 <p><span class="citation" data-cites="Northrop.Attalides.Jonathan:2017">Northrop, Attalides, and Jonathan (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span> propose a Bayesian method based on leave-one-out cross validation with a binomial-generalized Pareto (BGP) model and a single validation threshold <span class="math inline">\(v &gt; u_k\)</span> above which we assess the model performance.</p>
 <p>The measure of goodness-of-fit proposed is an estimate of the negated Kullback–Leibler divergence, <span class="math display">\[\begin{align*}
-\widehat{T}_v(u_i) = \sum_{i=1}^n \log\{ \widehat{f}_v(x_r \mid \boldsymbol{x}_{-r}, u_i)\}.
-\end{align*}\]</span> The selected threshold is the one among the candidates maximizing this diagnostic.</p>
-<p>Further propose using Bayesian model averaging to account for the uncertainty originating from threshold selection.</p>
+\widehat{T}_v(u_j) = \sum_{i=1}^n \log\widehat{f}_v(x_r \mid \boldsymbol{x}_{-r}, u_j).
+\end{align*}\]</span> The selected threshold is the one maximizing this diagnostic.</p>
+<p>Can use Bayesian model averaging to account for the uncertainty originating from threshold selection.</p>
+</div>
 </section>
 <section id="metric-based-diagnostic" class="slide level2">
 <h2>Metric-based diagnostic</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
 <div style="font-size: 80%;">
-<p>Build quantile-quantile (QQ-) plot, with pointwise confidence intervals can be obtained using a parametric bootstrap.</p>
-<p>Each bootstrap sample <span class="math inline">\(b=1, \ldots, B\)</span>, estimate the empirical quantile function <span class="math inline">\(F_{b}\)</span>, which is evaluated at the plotting position <span class="math inline">\(p_i=i/(n+1)\)</span> for <span class="math inline">\(i=1, \ldots, n.\)</span></p>
+<p>Build quantile-quantile (QQ-) plot, with pointwise confidence intervals obtained using a parametric bootstrap.</p>
+<p>For each bootstrap sample <span class="math inline">\(b=1, \ldots, B\)</span>, estimate the empirical quantile function <span class="math inline">\(F_{b}\)</span> and evaluate it at the plotting position <span class="math inline">\(p_i=i/(n+1)\)</span> for <span class="math inline">\(i=1, \ldots, n.\)</span></p>
 <p><span class="citation" data-cites="Varty.Tawn:2021">Varty et al. (<a href="#/references" role="doc-biblioref" onclick="">2021</a>)</span> and <span class="citation" data-cites="Murphy.Tawn.Varty:2024">Murphy, Tawn, and Varty (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span> propose repeating this with simulated iid data from <span class="math inline">\(F_0\)</span> (tolerance intervals).</p>
 </div>
 </div><div class="column" style="width:40%;">
@@ -474,8 +488,8 @@ Under null hypothesis, $p$-values should be around 0.5.
 </section>
 <section id="metric-based-adjustment" class="slide level2">
 <h2>Metric-based adjustment</h2>
-<p>Build metric based on exponential (or generalized Pareto quantile <span class="math inline">\(F_0^{-1}\{p_i\}\)</span> against <span class="math inline">\(F^{-1}_{b}(p_i)\)</span> with mean absolute difference or mean squared difference.</p>
-<p>Pick the threshold with the smallest average distance is chosen.</p>
+<p>Build metric based on exponential (or generalized Pareto) <strong>quantile</strong> <span class="math inline">\(F_0^{-1}(p_i)\)</span> against <span class="math inline">\(F^{-1}_{b}(p_i)\)</span> with mean absolute difference or mean squared difference.</p>
+<p>Pick the threshold with the smallest average distance.</p>
 <ul>
 <li>amenable to different sampling schemes (censoring, non-identically distributed data, time-varying thresholds).</li>
 <li>computationally-intensive by design.</li>
@@ -511,9 +525,9 @@ Under null hypothesis, $p$-values should be around 0.5.
 <ul>
 <li>The oracle method returns average threshold around the 87% and the 90% quantile.</li>
 <li>Mean residual life plots are uniformly scattered.</li>
-<li><span class="citation" data-cites="Varty.Tawn:2021">Varty et al. (<a href="#/references" role="doc-biblioref" onclick="">2021</a>)</span>’s metric diagnostic also leads to very small thresholds.</li>
-<li><span class="citation" data-cites="Northrop.Attalides.Jonathan:2017">Northrop, Attalides, and Jonathan (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span> and <span class="citation" data-cites="Thompson:2009">Thompson et al. (<a href="#/references" role="doc-biblioref" onclick="">2009</a>)</span> lead to much less agreement and a greater variability of selected quantile levels for the thresholds. For the cross-validation approach, this is in line with findings of <span class="citation" data-cites="Murphy.Tawn.Varty:2024">Murphy, Tawn, and Varty (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span>.</li>
-<li>Wadsworth’s sequential testing performs best with heavy tailed distributions, but otherwise is one of the worst in terms of ranking.</li>
+<li><span class="citation" data-cites="Varty.Tawn:2021">Varty et al. (<a href="#/references" role="doc-biblioref" onclick="">2021</a>)</span>’s metric diagnostic leads to very small thresholds.</li>
+<li><span class="citation" data-cites="Northrop.Attalides.Jonathan:2017">Northrop, Attalides, and Jonathan (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span> and <span class="citation" data-cites="Thompson:2009">Thompson et al. (<a href="#/references" role="doc-biblioref" onclick="">2009</a>)</span> lead to a greater variability of selected quantile levels for the thresholds but are variable.</li>
+<li>Wadsworth’s sequential testing performs best with heavy tailed distributions, but otherwise is not competitive in the rankings.</li>
 </ul>
 </div>
 </section>
@@ -528,14 +542,27 @@ Under null hypothesis, $p$-values should be around 0.5.
 </section>
 <section id="question-period" class="slide level2">
 <h2>Question period</h2>
-<ul>
-<li>Thank you for your attention and thanks to the organizers.</li>
-<li>Preprint coming soon.</li>
-<li>Many numerical methods in <strong>R</strong> packages <code>mev</code> and <code>tea</code>.</li>
-<li>Slides at <a href="https://lbelzile.github.io/EVA2025-choosing-threshold"><code>lbelzile.github.io/EVA2025-choosing-threshold</code></a></li>
-</ul>
-
-<img data-src="figures/NSERC.png" class="quarto-figure quarto-figure-center r-stretch" style="width:10.0%"></section>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Thank you for your attention and thanks to the conference organizers.</p>
+<p>Preprint coming (hopefully) soon on arXiv.</p>
+</div><div class="column" style="width:45%;">
+<p>See you in Montréal, July 5th-9th, 2027!</p>
+<p>Thanks to NSERC for funding</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/NSERC.png" class="quarto-figure quarto-figure-center" style="width:50.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+<div style="font-size: 90%;">
+<p>Slides at <a href="https://lbelzile.github.io/EVA2025-choosing-threshold"><code>lbelzile.github.io/EVA2025-choosing-threshold</code></a></p>
+</div>
+</section>
 <section id="semiparametric-methods" class="slide level2">
 <h2>Semiparametric methods</h2>
 <p>The paper also compares 18 different semiparametric methods using Hill-type estimators for heavy-tailed data.</p>
@@ -552,6 +579,11 @@ Under null hypothesis, $p$-values should be around 0.5.
 <li><span class="citation" data-cites="Drees.Kaufmann:1998">Drees and Kaufmann (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span> bias-reduction method leads to large width of confidence intervals (unwanted variability), an</li>
 <li>Many other methods are extremely variable.</li>
 </ul>
+</section>
+<section id="testing-using-maximum-likelihood-distribution" class="slide level2">
+<h2>Testing using maximum likelihood distribution</h2>
+<p><span class="citation" data-cites="Thompson:2009">Thompson et al. (<a href="#/references" role="doc-biblioref" onclick="">2009</a>)</span> propose using constant values <span class="math display">\[\tau_j = \widehat{\sigma}_j - \widehat{\xi}_j u_j\]</span> and performing Pearson’s test of normality for the differences <span class="math inline">\(\tau_{j+1} - \tau_{j}\)</span> (<span class="math inline">\(j=1, \ldots, k-1\)</span>), stopping whenever the hypothesis is rejected at level <span class="math inline">\(\alpha = 0.2\)</span>.</p>
+<p><em>Ad hoc</em> proposal… but works well in simulations.</p>
 </section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
